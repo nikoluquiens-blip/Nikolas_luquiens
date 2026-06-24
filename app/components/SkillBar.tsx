@@ -21,17 +21,31 @@ export default function SkillBar({ name, level, delay = 0, color = "blue" }: Ski
   return (
     <div>
       <div className="flex justify-between mb-2">
-        <span className="text-gray-300 text-sm">{name}</span>
-        <span className={`text-sm ${numColor}`}>
+        <motion.span
+          initial={{ opacity: 0, x: -8 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", stiffness: 200, damping: 24, delay }}
+          className="text-gray-300 text-sm"
+        >
+          {name}
+        </motion.span>
+        <motion.span
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: delay + 0.2, duration: 0.3 }}
+          className={`text-sm ${numColor}`}
+        >
           <AnimatedNumber value={level} />%
-        </span>
+        </motion.span>
       </div>
       <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: `${level}%` }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.9, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
+          transition={{ type: "spring", stiffness: 60, damping: 18, delay }}
           className={`relative h-full rounded-full ${bar}`}
         >
           <span className={`absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full ${dot}`} />

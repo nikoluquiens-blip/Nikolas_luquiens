@@ -59,18 +59,37 @@ export default function Timeline() {
       />
 
       <div className="flex flex-col gap-10">
-        {milestones.map((m, i) => (
-          <Reveal key={m.title} delay={i * 0.08}>
-            <div className="relative">
-              <span className={`absolute -left-9 top-1.5 w-3 h-3 rounded-full ${m.dot}`} />
-              <p className={`text-xs uppercase tracking-widest mb-1 font-medium ${m.label}`}>
-                {m.tag}
-              </p>
-              <h3 className="text-white font-semibold text-lg mb-2">{m.title}</h3>
-              <p className="text-gray-400 leading-relaxed text-sm">{m.desc}</p>
-            </div>
-          </Reveal>
-        ))}
+        {milestones.map((m, i) => {
+          const isLast = i === milestones.length - 1;
+          return (
+            <Reveal key={m.title} delay={i * 0.08}>
+              <div className="relative">
+                {/* Dot */}
+                <span className={`absolute -left-9 top-1.5 w-3 h-3 rounded-full ${m.dot}`} />
+                {isLast && (
+                  <motion.span
+                    animate={{ scale: [1, 1.8, 1], opacity: [0.6, 0, 0.6] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+                    className={`absolute -left-9 top-1.5 w-3 h-3 rounded-full ${m.dot}`}
+                  />
+                )}
+                <div className="overflow-hidden">
+                  <motion.p
+                    initial={{ y: "100%" }}
+                    whileInView={{ y: "0%" }}
+                    viewport={{ once: true }}
+                    transition={{ type: "spring", stiffness: 120, damping: 20, delay: i * 0.08 }}
+                    className={`text-xs uppercase tracking-widest mb-1 font-medium ${m.label}`}
+                  >
+                    {m.tag}
+                  </motion.p>
+                </div>
+                <h3 className="text-white font-semibold text-lg mb-2">{m.title}</h3>
+                <p className="text-gray-400 leading-relaxed text-sm">{m.desc}</p>
+              </div>
+            </Reveal>
+          );
+        })}
       </div>
     </div>
   );

@@ -10,7 +10,6 @@ export default function SplitText({
   text: string;
   className?: string;
   delay?: number;
-  /** Optional word(s) to render in blue, matched case-sensitively */
   highlight?: string;
 }) {
   const words = text.split(" ");
@@ -20,16 +19,22 @@ export default function SplitText({
       {words.map((word, i) => {
         const isHighlighted = highlight?.split(" ").includes(word);
         return (
-          <motion.span
-            key={`${word}-${i}`}
-            initial={{ opacity: 0, y: 18, filter: "blur(4px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, delay: delay + i * 0.06, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className={`inline-block mr-[0.25em] ${isHighlighted ? "text-blue-400" : ""}`}
-          >
-            {word}
-          </motion.span>
+          <span key={`${word}-${i}`} className="inline-block overflow-hidden mr-[0.25em]">
+            <motion.span
+              initial={{ y: "110%", opacity: 0, rotate: 2 }}
+              whileInView={{ y: "0%", opacity: 1, rotate: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 18,
+                delay: delay + i * 0.07,
+              }}
+              className={`inline-block ${isHighlighted ? "text-blue-400" : ""}`}
+            >
+              {word}
+            </motion.span>
+          </span>
         );
       })}
     </span>
