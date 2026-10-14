@@ -14,18 +14,17 @@ export default function ContactForm() {
     setStatus("loading");
     const form = e.currentTarget;
     const data = {
-      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "",
       name: (form.elements.namedItem("name") as HTMLInputElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
-      subject: `Contact portfolio — ${(form.elements.namedItem("name") as HTMLInputElement).value}`,
       entreprise: (form.elements.namedItem("entreprise") as HTMLInputElement).value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
-      from_name: "Portfolio Nikolas",
     };
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      // La clé Web3Forms n'est plus jamais exposée au navigateur : c'est
+      // /api/contact (côté serveur) qui la porte et relaie vers Web3Forms.
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
       const json = await res.json();
