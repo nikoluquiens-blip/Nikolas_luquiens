@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useMotionValue, useSpring, useInView } from "motion/react";
 
-export default function AnimatedNumber({ value, duration = 1.2 }: { value: number; duration?: number }) {
+export default function AnimatedNumber({ value }: { value: number }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
   const [display, setDisplay] = useState(0);
