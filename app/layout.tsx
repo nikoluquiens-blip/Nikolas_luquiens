@@ -6,7 +6,7 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import IntroLoader from "./components/IntroLoader";
-import CTASection from "./components/CTASection";
+import ConditionalCTA from "./components/ConditionalCTA";
 import "./globals.css";
 
 const siteUrl =
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s — Nikolas Luquiens",
   },
   description:
-    "Portfolio de Nikolas Luquiens, 15 ans, basé en Suisse. Futur apprenti CFC informatique ou médiamatique pour la rentrée 2027. Développeur web autodidacte spécialisé React, Next.js et TypeScript.",
+    "Portfolio de Nikolas Luquiens, 15 ans, basé en Suisse. Futur apprenti CFC informatique ou médiamatique pour la rentrée 2027. Conçoit des projets web (React, Next.js, TypeScript) avec Claude Code.",
   keywords: [
     "Nikolas Luquiens",
     "Luquiens Nikolas",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Nikolas Luquiens — Futur apprenti informaticien & médiamaticien",
     description:
-      "15 ans, Suisse. Développeur React & Next.js autodidacte, à la recherche d'un apprentissage CFC informatique ou médiamatique pour 2027.",
+      "15 ans, Suisse. Conçoit des projets React & Next.js avec Claude Code, à la recherche d'un apprentissage CFC informatique ou médiamatique pour 2027.",
     url: siteUrl,
     siteName: "Portfolio Nikolas Luquiens",
     locale: "fr_CH",
@@ -97,7 +97,7 @@ const personJsonLd = {
   name: "Nikolas Luquiens",
   url: siteUrl,
   description:
-    "Futur apprenti CFC informatique ou médiamatique pour la rentrée 2027. Développeur web autodidacte spécialisé React, Next.js et TypeScript, basé en Suisse.",
+    "Futur apprenti CFC informatique ou médiamatique pour la rentrée 2027. Conçoit des projets web avec Claude Code (React, Next.js, TypeScript), basé en Suisse.",
   jobTitle: "Futur apprenti CFC Informatique / Médiamatique",
   nationality: { "@type": "Country", name: "Switzerland" },
   knowsAbout: [
@@ -114,7 +114,7 @@ const personJsonLd = {
   ],
   hasOccupation: {
     "@type": "Occupation",
-    name: "Développeur web frontend",
+    name: "Futur développeur web",
     occupationLocation: { "@type": "Country", name: "Switzerland" },
   },
 };
@@ -160,7 +160,7 @@ export default function RootLayout({
         <ScrollProgress />
         <NavBar />
         {children}
-        <CTASection />
+        <ConditionalCTA />
         <Footer />
         <ScrollToTop />
       </body>

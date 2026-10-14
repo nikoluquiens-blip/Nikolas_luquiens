@@ -50,10 +50,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
-      url: `${siteUrl}/quiz`,
+      url: `${siteUrl}/mentions-legales`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.4,
+      changeFrequency: "yearly",
+      priority: 0.1,
+    },
+    {
+      url: `${siteUrl}/confidentialite`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.1,
     },
     ...posts.map((post) => ({
       url: `${siteUrl}/blog/${post.slug}`,
