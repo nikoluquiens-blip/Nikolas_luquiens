@@ -95,6 +95,38 @@ export default function Contact() {
                 </div>
               </TiltCard>
             </Reveal>
+
+            <Reveal delay={0.4}>
+              <TiltCard>
+                <div className="glass-card border border-white/10 rounded-2xl p-6 hover:border-blue-500/30 transition-all duration-300 flex flex-col gap-3">
+                  <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <div>
+                    <h3 className="text-sm font-semibold mb-1">Télécharger mon CV</h3>
+                    <p className="text-gray-500 text-xs leading-relaxed mb-3">Selon la piste qui t&apos;intéresse.</p>
+                    <div className="flex flex-col gap-2">
+                      <a
+                        href="/cv/nikolas-luquiens-cv-informaticien.pdf"
+                        download
+                        className="inline-flex items-center justify-between gap-2 text-xs border border-white/15 hover:border-blue-500/40 hover:bg-blue-500/5 rounded-lg px-3 py-2 transition-all duration-300 text-gray-300 hover:text-white"
+                      >
+                        CV — Informaticien
+                        <span>↓</span>
+                      </a>
+                      <a
+                        href="/cv/nikolas-luquiens-cv-mediamaticien.pdf"
+                        download
+                        className="inline-flex items-center justify-between gap-2 text-xs border border-white/15 hover:border-purple-500/40 hover:bg-purple-500/5 rounded-lg px-3 py-2 transition-all duration-300 text-gray-300 hover:text-white"
+                      >
+                        CV — Médiamaticien
+                        <span>↓</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </TiltCard>
+            </Reveal>
           </div>
         </div>
       </section>

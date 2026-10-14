@@ -13,8 +13,26 @@ export const metadata: Metadata = {
 
 const projects = [
   {
+    title: "Capy Hockey (CPHL)",
+    desc: "Un jeu vidéo de hockey complet développé en JavaScript avec Claude Code : moteur physique, IA, plusieurs modes (carrière, franchise, multijoueur). Je prépare aussi son identité visuelle et ses textes marketing pour un lancement sur itch.io et Steam.",
+    tags: ["JavaScript", "Claude Code", "Vercel", "Identité visuelle"],
+    status: "En cours",
+    link: null,
+    external: false,
+    track: "both",
+  },
+  {
+    title: "Communication & identité visuelle — équipe de hockey",
+    desc: "Gestion et animation du compte Instagram de mon équipe (photos, stories, publications après les matchs) et création du logo et des visuels de l'équipe avec Canva. Saison 2025-2026.",
+    tags: ["Canva", "Réseaux sociaux", "Identité visuelle"],
+    status: "En cours",
+    link: null,
+    external: false,
+    track: "media",
+  },
+  {
     title: "Portfolio Personnel",
-    desc: "Mon site portfolio développé avec Next.js 15, TypeScript et Tailwind CSS. Animations avec Motion (Framer Motion v12), SEO optimisé.",
+    desc: "Mon site portfolio, conçu avec Claude Code sur Next.js 15, TypeScript et Tailwind CSS. Animations avec Motion (Framer Motion v12), SEO optimisé.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Motion"],
     status: "En cours",
     link: "/",
@@ -31,13 +49,13 @@ const projects = [
     track: "media",
   },
   {
-    title: "Stage en développement web",
-    desc: "Expérience pratique acquise lors de mon stage dans une entreprise spécialisée en développement web. Découverte du métier et des outils professionnels.",
-    tags: ["HTML", "CSS", "JavaScript"],
+    title: "Journée découverte — Rouge FM",
+    desc: "Une journée immergé dans une radio locale pour découvrir les métiers de la radio et de la production média, en lien direct avec mon projet médiamaticien.",
+    tags: ["Radio", "Découverte métier"],
     status: "Terminé",
     link: null,
     external: false,
-    track: "info",
+    track: "media",
   },
 ];
 
@@ -64,19 +82,19 @@ export default function Projets() {
       <section className="px-8 md:px-16 pt-16 pb-8 border-b border-white/5">
         <Reveal>
           <span className="inline-flex items-center gap-1.5 text-xs text-blue-400 border border-blue-500/30 rounded-full px-3 py-1 bg-blue-500/5 mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400" /> Projet phare · En ligne
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400" /> Projet phare · Stage chez Stormbolt
           </span>
         </Reveal>
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 max-w-5xl items-start mt-4">
           <div className="flex-1 min-w-0 space-y-5">
             <ClipReveal delay={0.05}>
-              <h2 className="text-3xl md:text-4xl font-bold leading-tight">Hockey Planning</h2>
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight">GoalieCoach</h2>
             </ClipReveal>
             <Reveal delay={0.1}>
               <p className="text-gray-400 leading-relaxed">
-                Application web de planning pour une équipe de hockey sur glace. Gestion des entraînements,
-                des matchs et des disponibilités des joueurs — entièrement conçue et développée par moi,
-                de l&apos;idée au déploiement sur Vercel.
+                Application de planification d&apos;entraînements pour les jeunes gardiens (mini-goalies)
+                que je coache, conçue avec Claude Code pendant mon stage chez Stormbolt — mon premier projet
+                web complet, de l&apos;idée au déploiement sur Vercel.
               </p>
             </Reveal>
             <Reveal delay={0.15}>

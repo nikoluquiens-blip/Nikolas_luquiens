@@ -12,29 +12,14 @@ export const metadata: Metadata = {
 
 const skills = [
   {
-    category: "Langages",
-    items: [
-      { name: "HTML", level: 70 },
-      { name: "CSS", level: 65 },
-      { name: "JavaScript", level: 45 },
-      { name: "TypeScript", level: 30 },
-    ],
-  },
-  {
-    category: "Frameworks & Outils",
-    items: [
-      { name: "React", level: 40 },
-      { name: "Next.js", level: 35 },
-      { name: "Tailwind CSS", level: 55 },
-      { name: "Git", level: 35 },
-    ],
-  },
-  {
     category: "Médiamatique & Communication",
     color: "purple" as const,
     items: [
       { name: "Présentation & prise de parole", level: 55 },
       { name: "Création de contenu (Canva)", level: 50 },
+      { name: "Identité visuelle", level: 50 },
+      { name: "Réseaux sociaux", level: 55 },
+      { name: "Photo & vidéo", level: 45 },
       { name: "Recherche & rédaction", level: 60 },
     ],
   },
@@ -79,7 +64,7 @@ export default function Competences() {
         <ClipReveal>
           <p className="text-gray-500 text-xs uppercase tracking-widest mb-10">Compétences techniques</p>
         </ClipReveal>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl">
           {skills.map((group, gi) => {
             const isMedia = "color" in group && group.color === "purple";
             return (
@@ -105,6 +90,50 @@ export default function Competences() {
             );
           })}
         </div>
+      </section>
+
+      {/* Outils */}
+      <section className="px-8 md:px-16 py-16 border-b border-white/5">
+        <ClipReveal>
+          <p className="text-gray-500 text-xs uppercase tracking-widest mb-10">Outils que j&apos;utilise</p>
+        </ClipReveal>
+        <Reveal>
+          <div className="flex flex-wrap gap-3 max-w-4xl">
+            {["Canva", "Claude Code", "VS Code", "GitHub", "Suite Office", "Écosystème Apple (Apple Creator Studio)"].map((tool) => (
+              <span
+                key={tool}
+                className="text-sm border border-white/15 text-gray-300 rounded-full px-4 py-1.5 font-medium"
+              >
+                {tool}
+              </span>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      {/* Langues */}
+      <section className="px-8 md:px-16 py-16 border-b border-white/5">
+        <ClipReveal>
+          <p className="text-gray-500 text-xs uppercase tracking-widest mb-10">Langues</p>
+        </ClipReveal>
+        <Reveal>
+          <div className="flex flex-wrap gap-3 max-w-4xl">
+            {[
+              { name: "Français", level: "Langue maternelle" },
+              { name: "Hongrois", level: "Langue maternelle" },
+              { name: "Anglais", level: "En apprentissage" },
+              { name: "Allemand", level: "En apprentissage · niv. 2" },
+            ].map((lang) => (
+              <span
+                key={lang.name}
+                className="inline-flex items-center gap-2 text-sm border border-white/15 rounded-full pl-4 pr-3 py-1.5 font-medium text-gray-300"
+              >
+                {lang.name}
+                <span className="text-xs text-gray-500 font-normal">{lang.level}</span>
+              </span>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
       {/* Soft skills */}

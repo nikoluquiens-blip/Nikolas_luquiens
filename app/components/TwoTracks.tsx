@@ -3,13 +3,13 @@ import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "motion/react";
 
-/* ── Syntax-highlighted code lines ── */
-const codeLines = [
-  <span key="0"><span className="text-purple-400">const</span>{" "}<span className="text-blue-300">Nikolas</span>{" "}<span className="text-white/50">=</span>{" "}<span className="text-yellow-300">{"{"}</span></span>,
-  <span key="1"><span className="pl-5 block"><span className="text-green-300">cfc</span><span className="text-white/50">:{" "}</span><span className="text-orange-300">&ldquo;informatique&rdquo;</span><span className="text-white/40">,</span></span></span>,
-  <span key="2"><span className="pl-5 block"><span className="text-green-300">stack</span><span className="text-white/50">:{" "}</span><span className="text-yellow-300">[</span><span className="text-orange-300">&ldquo;React&rdquo;</span><span className="text-white/40">, </span><span className="text-orange-300">&ldquo;Next.js&rdquo;</span><span className="text-yellow-300">]</span><span className="text-white/40">,</span></span></span>,
-  <span key="3"><span className="pl-5 block"><span className="text-green-300">disponible</span><span className="text-white/50">:{" "}</span><span className="text-sky-300">2027</span><span className="text-white/40">,</span></span></span>,
-  <span key="4"><span className="text-yellow-300">{"}"}</span></span>,
+const devItems = [
+  { emoji: "💬", label: "Claude Code" },
+  { emoji: "🧠", label: "Conception produit" },
+  { emoji: "🔍", label: "Revue & tests" },
+  { emoji: "🚀", label: "Déploiement Vercel" },
+  { emoji: "🎨", label: "UI / UX" },
+  { emoji: "🗂️", label: "Architecture" },
 ];
 
 const mediaItems = [
@@ -20,37 +20,6 @@ const mediaItems = [
   { emoji: "🎬", label: "Production" },
   { emoji: "🌐", label: "Stratégie web" },
 ];
-
-function CodeBlock() {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-
-  return (
-    <div
-      ref={ref}
-      className="bg-black/50 rounded-xl p-5 border border-white/8 font-mono text-xs leading-loose select-none"
-    >
-      {codeLines.map((line, i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, x: -12 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.35, delay: 0.1 + i * 0.09, ease: "easeOut" }}
-        >
-          {line}
-        </motion.div>
-      ))}
-      {/* blinking cursor */}
-      <motion.span
-        animate={{ opacity: [1, 0, 1] }}
-        transition={{ duration: 1, repeat: Infinity }}
-        className="text-blue-400"
-      >
-        ▌
-      </motion.span>
-    </div>
-  );
-}
 
 export default function TwoTracks() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -104,14 +73,30 @@ export default function TwoTracks() {
                 <span className="w-4 h-px bg-blue-400 inline-block" /> CFC Informatique
               </span>
               <h3 className="text-3xl md:text-4xl font-bold text-white mt-4 leading-tight">
-                Je code<br />des solutions.
+                Je conçois<br />des solutions.
               </h3>
             </div>
 
-            <CodeBlock />
+            {/* Dev process grid */}
+            <div className="grid grid-cols-3 gap-2.5">
+              {devItems.map((item, i) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.3, delay: 0.4 + i * 0.06 }}
+                  className="bg-white/5 border border-white/8 rounded-xl p-3 text-center hover:border-blue-500/40 hover:bg-blue-500/8 transition-all duration-300 group/card"
+                >
+                  <span className="text-2xl block mb-1.5 group-hover/card:scale-110 transition-transform duration-300">
+                    {item.emoji}
+                  </span>
+                  <span className="text-xs text-gray-500 leading-tight block">{item.label}</span>
+                </motion.div>
+              ))}
+            </div>
 
             <div className="flex flex-wrap gap-2">
-              {["React", "Next.js", "TypeScript", "Tailwind CSS", "Git"].map((tag) => (
+              {["Claude Code", "Next.js", "Vercel", "Conception"].map((tag) => (
                 <span
                   key={tag}
                   className="text-xs text-blue-400 border border-blue-500/30 rounded-full px-3 py-1 bg-blue-500/5"

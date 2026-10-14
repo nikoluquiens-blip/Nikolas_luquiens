@@ -11,7 +11,6 @@ import ParticleField from "./components/ParticleField";
 import ConfettiButton from "./components/ConfettiButton";
 import QuoteSection from "./components/QuoteSection";
 import TwoTracks from "./components/TwoTracks";
-import CTASection from "./components/CTASection";
 import ScrollVelocity from "./components/ScrollVelocity";
 import SpotlightCard from "./components/SpotlightCard";
 import TiltCard from "./components/TiltCard";
@@ -26,8 +25,8 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
       </svg>
     ),
-    title: "Développement Frontend",
-    desc: "Création d'interfaces modernes et responsives avec React et Next.js.",
+    title: "Conception Frontend",
+    desc: "Interfaces modernes et responsives, conçues et construites avec Claude Code (React, Next.js).",
   },
   {
     icon: (
@@ -36,7 +35,7 @@ const services = [
       </svg>
     ),
     title: "Intégration Web",
-    desc: "Intégration fidèle de maquettes avec des composants réutilisables.",
+    desc: "Transformation de maquettes en interfaces fonctionnelles, avec Claude Code.",
   },
   {
     icon: (
@@ -45,7 +44,7 @@ const services = [
       </svg>
     ),
     title: "UI / UX Design",
-    desc: "Design soigné et expérience utilisateur fluide avec Tailwind CSS.",
+    desc: "Design soigné et expérience utilisateur fluide, pensés avant d'être construits avec Claude Code.",
   },
   {
     icon: (
@@ -192,7 +191,7 @@ export default function WelcomePage() {
 
               <div className="flex flex-col gap-3">
                 <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-                  Autodidacte en développement web depuis mes 13 ans. Passionné par les interfaces modernes — disponible pour un CFC dès 2027.
+                  Je conçois des projets web avec Claude Code depuis mes 14 ans. Passionné par les interfaces modernes — disponible pour un CFC dès 2027.
                 </p>
                 {/* Availability pill */}
                 <div className="inline-flex items-center gap-2 self-start">
@@ -289,7 +288,7 @@ export default function WelcomePage() {
         </Reveal>
         <ClipReveal delay={0.05} className="mb-10">
           <h2 className="text-2xl md:text-3xl font-bold">
-            Du code en <span className="text-blue-400">production</span>
+            Des projets en <span className="text-blue-400">production</span>
           </h2>
         </ClipReveal>
         <Reveal delay={0.1}>
@@ -304,11 +303,10 @@ export default function WelcomePage() {
                     </span>
                     <span className="text-green-400 text-xs font-medium">En ligne · Vercel</span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold leading-tight">Hockey Planning</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold leading-tight">GoalieCoach</h3>
                   <p className="text-gray-400 text-sm leading-relaxed">
-                    Application web de planning pour une équipe de hockey sur glace. Gestion des entraînements,
-                    des matchs et des disponibilités des joueurs — entièrement conçue et déployée par moi,
-                    de l&apos;idée à la production.
+                    Application de planification d&apos;entraînements pour les jeunes gardiens que je coache,
+                    conçue avec Claude Code pendant mon stage chez Stormbolt — de l&apos;idée à la production.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {["Next.js 15", "React", "TypeScript", "Tailwind CSS", "Vercel"].map((tag) => (
@@ -486,9 +484,6 @@ export default function WelcomePage() {
           ))}
         </div>
       </section>
-
-      {/* ── CTA final ── */}
-      <CTASection />
     </div>
   );
 }

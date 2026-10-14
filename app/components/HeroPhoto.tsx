@@ -100,7 +100,7 @@ export default function HeroPhoto() {
         <div className="w-full h-full rounded-full bg-[#0a0a0a] p-1.5">
           <div className="relative w-full h-full rounded-full overflow-hidden">
             <Image
-              src="/nikolebg.png"
+              src="/nikolas-portrait.jpg"
               alt="Nikolas"
               fill
               priority

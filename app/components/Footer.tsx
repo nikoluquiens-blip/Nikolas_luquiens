@@ -89,7 +89,7 @@ export default function Footer() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.1 }}
         >
-          <p className="text-xs text-gray-600 uppercase tracking-widest mb-5">Navigation</p>
+          <p className="text-xs text-gray-400 uppercase tracking-widest mb-5">Navigation</p>
           <div className="grid grid-cols-2 gap-x-4 gap-y-3">
             {navLinks.map((link, i) => (
               <motion.div
@@ -122,7 +122,7 @@ export default function Footer() {
           transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}
           className="space-y-5"
         >
-          <p className="text-xs text-gray-600 uppercase tracking-widest">Me contacter</p>
+          <p className="text-xs text-gray-400 uppercase tracking-widest">Me contacter</p>
           <p className="text-gray-400 text-sm leading-relaxed">
             Prêt à m&apos;offrir une chance d&apos;apprendre dans votre entreprise pour 2027 ?
           </p>
@@ -153,11 +153,19 @@ export default function Footer() {
         transition={{ delay: 0.5, duration: 0.6 }}
         className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 pt-7 border-t border-white/5"
       >
-        <p className="text-gray-700 text-xs">
+        <p className="text-gray-400 text-xs">
           © 2026 Nikolas Luquiens — Tous droits réservés.
         </p>
-        <p className="text-gray-700 text-xs">
-          Conçu &amp; développé avec Next.js 15, TypeScript &amp; Motion
+        <div className="flex items-center gap-4">
+          <Link href="/mentions-legales" className="text-gray-400 hover:text-white text-xs transition-colors">
+            Mentions légales
+          </Link>
+          <Link href="/confidentialite" className="text-gray-400 hover:text-white text-xs transition-colors">
+            Confidentialité
+          </Link>
+        </div>
+        <p className="text-gray-400 text-xs">
+          Conçu avec Claude Code · Next.js 15, TypeScript &amp; Motion
         </p>
       </motion.div>
     </footer>

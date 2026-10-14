@@ -21,9 +21,16 @@ const milestones = [
   {
     tag: "Le tournant",
     title: "Un stage qui change tout",
-    desc: "J'ai fait un stage en informatique sans penser que ça changerait mon projet. Mais ce stage m'a donné un vrai coup de cœur pour le développement, que je n'attendais pas du tout.",
+    desc: "Stage chez Stormbolt sans penser que ça changerait mon projet. J'y ai conçu GoalieCoach avec Claude Code, une app de planification d'entraînements pour les jeunes gardiens que je coache — un vrai coup de cœur pour le développement, que je n'attendais pas du tout.",
     dot: "bg-blue-400 shadow-[0_0_10px_2px_rgba(96,165,250,0.6)]",
     label: "text-blue-400",
+  },
+  {
+    tag: "Depuis juillet 2026",
+    title: "Capy Hockey, mon premier jeu vidéo",
+    desc: "Je développe seul un jeu de hockey complet avec Claude Code — moteur physique, IA, plusieurs modes de jeu — en préparant aussi son identité visuelle pour un lancement sur itch.io et Steam.",
+    dot: "bg-purple-400 shadow-[0_0_10px_2px_rgba(168,85,247,0.6)]",
+    label: "text-purple-400",
   },
   {
     tag: "Aujourd'hui",
