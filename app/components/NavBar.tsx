@@ -12,7 +12,6 @@ const navLinks = [
   { label: "Projets", href: "/projets" },
   { label: "À propos", href: "/a-propos" },
   { label: "Blog", href: "/blog" },
-  { label: "Quiz ✨", href: "/quiz", special: true },
 ];
 
 export default function NavBar() {
@@ -59,19 +58,14 @@ export default function NavBar() {
         <div className="hidden md:flex gap-8 items-center">
           {navLinks.map((link) => {
             const active = pathname === link.href;
-            const isSpecial = "special" in link && link.special;
             return (
               <Link
                 key={link.label}
                 href={link.href}
-                className={`relative text-sm transition-colors ${
-                  isSpecial
-                    ? "bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
-                    : active ? "text-white" : "text-gray-400 hover:text-white"
-                }`}
+                className={`relative text-sm transition-colors ${active ? "text-white" : "text-gray-400 hover:text-white"}`}
               >
-                {isSpecial ? link.label : <TextScramble text={link.label} speed={28} />}
-                {active && !isSpecial && (
+                <TextScramble text={link.label} speed={28} />
+                {active && (
                   <motion.span
                     layoutId="nav-indicator"
                     className="absolute left-0 -bottom-1 w-full h-px bg-gradient-to-r from-blue-400 to-transparent"
@@ -156,7 +150,7 @@ export default function NavBar() {
                   >
                     <Link
                       href={link.href}
-                      className={`text-base transition-colors ${"special" in link && link.special ? "bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent" : pathname === link.href ? "text-white font-semibold" : "text-gray-400 hover:text-white"}`}
+                      className={`text-base transition-colors ${pathname === link.href ? "text-white font-semibold" : "text-gray-400 hover:text-white"}`}
                       onClick={() => setOpen(false)}
                     >
                       {link.label}
