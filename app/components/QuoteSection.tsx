@@ -74,8 +74,8 @@ export default function QuoteSection() {
             {highlightWords.map((word, i) => (
               <motion.span
                 key={i}
-                initial={{ opacity: 0, y: 14, filter: "blur(4px)" }}
-                animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+                initial={{ opacity: 0, y: 14 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{
                   type: "spring",
                   stiffness: 140,

@@ -135,7 +135,8 @@ export default function WelcomePage() {
         {/* NIKO watermark with parallax */}
         <motion.div
           style={{ y: nikoY, opacity: nikoOpacity }}
-          className="absolute inset-0 flex items-center justify-end overflow-hidden pointer-events-none select-none z-[0]"
+          className="absolute inset-0 flex items-center justify-end overflow-hidden pointer-events-none select-none 
+          "
         >
           <span
             className="font-black text-white/[0.022] leading-none tracking-tighter"
@@ -215,7 +216,7 @@ export default function WelcomePage() {
                 <span className="relative">Me recruter</span> <span className="relative">→</span>
               </ConfettiButton>
               <MagneticButton
-                href="/cv.pdf"
+                href="/cv/nikolas-luquiens-cv-informaticien.pdf"
                 download
                 className="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-gray-300 hover:text-white px-6 py-4 rounded-xl transition-colors duration-300 text-sm font-medium"
               >

@@ -56,8 +56,8 @@ export default function CTASection() {
             return (
               <motion.span
                 key={i}
-                initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
-                animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{
                   type: "spring",
                   stiffness: 160,
