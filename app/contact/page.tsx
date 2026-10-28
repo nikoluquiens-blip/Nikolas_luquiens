@@ -8,7 +8,7 @@ import ContactForm from "../components/ContactForm";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contactez Nikolas Luquiens pour un contrat d'apprentissage en informatique ou en médiamatique — rentrée 2027.",
+    "Contactez Nikolas Luquiens pour un contrat d'apprentissage en médiamatique — rentrée 2027.",
 };
 
 const EMAIL = "niko.luquiens@icloud.com";
@@ -104,25 +104,15 @@ export default function Contact() {
                   </svg>
                   <div>
                     <h3 className="text-sm font-semibold mb-1">Télécharger mon CV</h3>
-                    <p className="text-gray-500 text-xs leading-relaxed mb-3">Selon la piste qui t&apos;intéresse.</p>
-                    <div className="flex flex-col gap-2">
-                      <a
-                        href="/cv/nikolas-luquiens-cv-informaticien.pdf"
-                        download
-                        className="inline-flex items-center justify-between gap-2 text-xs border border-white/15 hover:border-blue-500/40 hover:bg-blue-500/5 rounded-lg px-3 py-2 transition-all duration-300 text-gray-300 hover:text-white"
-                      >
-                        CV — Informaticien
-                        <span>↓</span>
-                      </a>
-                      <a
-                        href="/cv/nikolas-luquiens-cv-mediamaticien.pdf"
-                        download
-                        className="inline-flex items-center justify-between gap-2 text-xs border border-white/15 hover:border-purple-500/40 hover:bg-purple-500/5 rounded-lg px-3 py-2 transition-all duration-300 text-gray-300 hover:text-white"
-                      >
-                        CV — Médiamaticien
-                        <span>↓</span>
-                      </a>
-                    </div>
+                    <p className="text-gray-500 text-xs leading-relaxed mb-3">Au format PDF.</p>
+                    <a
+                      href="/cv/nikolas-luquiens-cv-mediamaticien.pdf"
+                      download
+                      className="inline-flex items-center justify-between gap-2 text-xs border border-white/15 hover:border-purple-500/40 hover:bg-purple-500/5 rounded-lg px-3 py-2 transition-all duration-300 text-gray-300 hover:text-white"
+                    >
+                      CV — Nikolas Luquiens
+                      <span>↓</span>
+                    </a>
                   </div>
                 </div>
               </TiltCard>

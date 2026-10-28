@@ -9,48 +9,48 @@ export type BlogPost = {
 
 export const posts: BlogPost[] = [
   {
-    slug: "comment-jai-commence-le-developpement-web-a-15-ans",
+    slug: "ce-que-mon-stage-chez-stormbolt-ma-appris",
     date: "Juin 2026",
-    title: "Comment j'ai commencé le développement web à 15 ans",
+    title: "Ce que mon stage chez Stormbolt m'a appris",
     excerpt:
-      "Entre la radio, le métier de médiamaticien et un stage en informatique qui a tout changé, voici comment j'en suis arrivé à préparer deux CFC en même temps.",
+      "Un stage pensé comme une simple découverte m'a donné de vrais outils numériques — utiles aujourd'hui pour mes projets de création de contenu.",
     readTime: "3 min",
     content: [
       {
         heading: "Le déclic",
         paragraphs: [
-          "Mon père travaille dans le développement web, avec WordPress. Le voir construire des sites, configurer des thèmes et résoudre des problèmes techniques à la maison m'a beaucoup intéressé en grandissant.",
-          "Mais ce n'est pas tout de suite vers l'informatique que je me suis dirigé. En grandissant, c'est la radio qui m'attirait le plus. On m'a expliqué que ce métier portait un nom — médiamaticien — et j'ai décidé de viser cette voie.",
+          "Mon père travaille dans le développement web, avec WordPress. Le voir construire des sites, configurer des thèmes et résoudre des problèmes techniques à la maison a éveillé très tôt ma curiosité pour le digital.",
+          "Mais c'est la radio qui m'attirait le plus en grandissant. On m'a expliqué que ce métier portait un nom — médiamaticien — et je me suis dirigé vers cette voie.",
         ],
       },
       {
-        heading: "Le stage qui a tout changé",
+        heading: "Un stage qui m'a beaucoup appris",
         paragraphs: [
-          "J'ai fait un stage en informatique, un peu pour voir, sans penser que ça changerait quoi que ce soit à mon projet vers le médiamatique. Sauf que ce stage m'a donné un vrai coup de cœur pour le développement web — bien plus fort que ce que j'imaginais.",
-          "Découvrir le HTML, le CSS, le JavaScript, et voir qu'avec quelques lignes de code on pouvait créer quelque chose de concret : ce sentiment-là m'a vraiment marqué.",
+          "J'ai fait un stage chez Stormbolt, un peu pour voir. J'y ai conçu GoalieCoach avec Claude Code, une app de planification d'entraînements pour les jeunes gardiens que je coache — mon premier vrai projet numérique complet.",
+          "Découvrir comment un site se construit, se déploie, se met à jour : ce sentiment de voir quelque chose de concret prendre vie en ligne m'a vraiment marqué.",
         ],
       },
       {
         heading: "Et maintenant ?",
         paragraphs: [
-          "Aujourd'hui, je ne veux plus choisir entre les deux. Mon objectif, c'est de me préparer pour deux CFC : informaticien et médiamaticien. Ce portfolio est lui-même mon terrain d'entraînement pour la partie développement — chaque page est une occasion de tester quelque chose de nouveau.",
-          "Mon but est clair : décrocher un contrat d'apprentissage pour la rentrée 2027, dans l'une de ces deux voies — ou pourquoi pas les deux.",
+          "Ce stage n'a rien changé à mon objectif : je me prépare pour un CFC médiamaticien. Mais il m'a donné des outils numériques concrets, que je réutilise aujourd'hui — ce portfolio, conçu avec Claude Code, en est un exemple direct.",
+          "Mon but reste clair : décrocher un contrat d'apprentissage médiamaticien pour la rentrée 2027.",
         ],
       },
     ],
   },
   {
-    slug: "pourquoi-le-metier-de-mediamaticien-mattire-aussi",
+    slug: "pourquoi-le-metier-de-mediamaticien-me-passionne",
     date: "Juin 2026",
-    title: "Pourquoi le métier de médiamaticien m'attire aussi",
+    title: "Pourquoi le métier de médiamaticien me passionne",
     excerpt:
-      "Avant de découvrir le développement web, je voulais faire de la radio. Voici pourquoi le métier de médiamaticien reste une vraie option pour moi.",
+      "Avant tout, c'est la radio qui me faisait rêver. Voici pourquoi le métier de médiamaticien est devenu mon objectif.",
     readTime: "3 min",
     content: [
       {
         heading: "Une envie qui vient de la radio",
         paragraphs: [
-          "Avant de m'intéresser à l'informatique, c'est la radio qui me faisait rêver. J'aimais l'idée de créer du contenu, de raconter quelque chose à un public, de donner vie à des idées avec du son et des mots.",
+          "Depuis toujours, c'est la radio qui me fait rêver. J'aime l'idée de créer du contenu, de raconter quelque chose à un public, de donner vie à des idées avec du son et des mots.",
           "C'est en me renseignant sur ce métier que j'ai découvert qu'il portait un nom précis en Suisse : médiamaticien. Un métier à la croisée du digital, de la création et de la communication — exactement ce qui m'attirait.",
         ],
       },
@@ -62,10 +62,10 @@ export const posts: BlogPost[] = [
         ],
       },
       {
-        heading: "Pourquoi je ne veux pas choisir",
+        heading: "Mon objectif pour 2027",
         paragraphs: [
-          "Le stage en informatique m'a donné un vrai coup de cœur pour le développement, mais il n'a pas effacé mon intérêt pour la médiamatique. Les deux métiers se complètent finalement assez bien : la rigueur du code d'un côté, la créativité de la communication de l'autre.",
-          "C'est pour ça que je me prépare aujourd'hui pour deux CFC en même temps. Quelle que soit l'entreprise qui me fera confiance pour la rentrée 2027, je sais que je m'investirai à fond.",
+          "La gestion du compte Instagram et de l'identité visuelle de mon équipe de hockey, ou encore l'habillage de mon jeu Capy Hockey, sont des terrains d'entraînement concrets pour ce métier — bien avant même de commencer un apprentissage.",
+          "Mon objectif est clair : décrocher un contrat d'apprentissage médiamaticien pour la rentrée 2027, et m'y investir à fond.",
         ],
       },
     ],

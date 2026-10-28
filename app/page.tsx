@@ -10,52 +10,12 @@ import AnimatedNumber from "./components/AnimatedNumber";
 import ParticleField from "./components/ParticleField";
 import ConfettiButton from "./components/ConfettiButton";
 import QuoteSection from "./components/QuoteSection";
-import TwoTracks from "./components/TwoTracks";
 import ScrollVelocity from "./components/ScrollVelocity";
 import SpotlightCard from "./components/SpotlightCard";
 import TiltCard from "./components/TiltCard";
 import ClipReveal from "./components/ClipReveal";
 import BrowserMockup from "./components/BrowserMockup";
 import { posts } from "./blog/posts";
-
-const services = [
-  {
-    icon: (
-      <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-      </svg>
-    ),
-    title: "Conception Frontend",
-    desc: "Interfaces modernes et responsives, conçues et construites avec Claude Code (React, Next.js).",
-  },
-  {
-    icon: (
-      <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-    title: "Intégration Web",
-    desc: "Transformation de maquettes en interfaces fonctionnelles, avec Claude Code.",
-  },
-  {
-    icon: (
-      <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-      </svg>
-    ),
-    title: "UI / UX Design",
-    desc: "Design soigné et expérience utilisateur fluide, pensés avant d'être construits avec Claude Code.",
-  },
-  {
-    icon: (
-      <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-      </svg>
-    ),
-    title: "Déploiement & Vercel",
-    desc: "Mise en ligne rapide et fiable sur Vercel avec CI/CD intégré.",
-  },
-];
 
 const mediaServices = [
   {
@@ -85,11 +45,20 @@ const mediaServices = [
     title: "Recherche & rédaction",
     desc: "Recherche d'informations fiables et rédaction claire et structurée pour transmettre un message.",
   },
+  {
+    icon: (
+      <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h9a4 4 0 014 4v14M17 21H7M21 11h-4a2 2 0 01-2-2V3" />
+      </svg>
+    ),
+    title: "Identité visuelle",
+    desc: "Création de logos et de chartes graphiques cohérentes, pensés pour une marque ou une équipe.",
+  },
 ];
 
 const stats = [
   { value: 15, suffix: "", label: "ans", sub: "Passionné depuis toujours", accent: "from-white to-blue-200" },
-  { value: 2027, suffix: "", label: "rentrée visée", sub: "CFC informatique ou médiamatique", accent: "from-blue-300 to-sky-400" },
+  { value: 2027, suffix: "", label: "rentrée visée", sub: "CFC médiamatique", accent: "from-blue-300 to-sky-400" },
   { value: 1, suffix: "", label: "stage effectué", sub: "En développement web", accent: "from-white to-gray-300" },
   { value: 100, suffix: "%", label: "motivé", sub: "Les deux voies, une ambition", accent: "from-blue-400 to-purple-400" },
 ];
@@ -216,7 +185,7 @@ export default function WelcomePage() {
                 <span className="relative">Me recruter</span> <span className="relative">→</span>
               </ConfettiButton>
               <MagneticButton
-                href="/cv/nikolas-luquiens-cv-informaticien.pdf"
+                href="/cv/nikolas-luquiens-cv-mediamaticien.pdf"
                 download
                 className="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-gray-300 hover:text-white px-6 py-4 rounded-xl transition-colors duration-300 text-sm font-medium"
               >
@@ -310,7 +279,7 @@ export default function WelcomePage() {
                     conçue avec Claude Code pendant mon stage chez Stormbolt — de l&apos;idée à la production.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {["Next.js 15", "React", "TypeScript", "Tailwind CSS", "Vercel"].map((tag) => (
+                    {["Claude Code", "Vercel", "Déploiement continu"].map((tag) => (
                       <span key={tag} className="text-xs text-blue-400 border border-blue-500/30 rounded-full px-3 py-1 bg-blue-500/5">
                         {tag}
                       </span>
@@ -339,9 +308,6 @@ export default function WelcomePage() {
         </Reveal>
       </section>
 
-      {/* ── Two tracks ── */}
-      <TwoTracks />
-
       {/* ── Quote ── */}
       <QuoteSection />
 
@@ -352,31 +318,14 @@ export default function WelcomePage() {
         </Reveal>
         <ClipReveal delay={0.05} className="mb-10">
           <h2 className="text-2xl md:text-3xl font-bold">
-            Deux voies, <span className="text-blue-400">une même envie d&apos;apprendre</span>
+            Une seule voie, <span className="text-purple-400">une vraie envie d&apos;apprendre</span>
           </h2>
         </ClipReveal>
 
         <Reveal delay={0.1}>
-          <p className="text-blue-400 text-xs uppercase tracking-widest mb-6">Développement</p>
-        </Reveal>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mb-16">
-          {services.map((s, i) => (
-            <Reveal key={s.title} delay={i * 0.07}>
-              <SpotlightCard className="h-full">
-                <div className="group glass-card border border-white/10 rounded-2xl p-8 hover:border-blue-500/30 transition-all duration-500 h-full">
-                  <div className="mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 inline-block">{s.icon}</div>
-                  <h3 className="text-xl font-semibold mb-3">{s.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
-                </div>
-              </SpotlightCard>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal delay={0.1}>
           <p className="text-purple-400 text-xs uppercase tracking-widest mb-6">Médiamatique</p>
         </Reveal>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl">
           {mediaServices.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.08}>
               <SpotlightCard spotColor="rgba(168,85,247,0.16)" className="h-full">
@@ -411,7 +360,7 @@ export default function WelcomePage() {
             {
               emoji: "🔥",
               title: "Persévérance",
-              desc: "Me préparer pour deux CFC en même temps, ça demande de la rigueur. J'aime les défis difficiles — c'est là que j'apprends le plus vite.",
+              desc: "Préparer un CFC exigeant demande de la rigueur. J'aime les défis difficiles — c'est là que j'apprends le plus vite.",
             },
             {
               emoji: "🌱",

@@ -35,7 +35,6 @@ export default function CTASection() {
           className="flex gap-3 flex-wrap justify-center"
         >
           {[
-            { label: "CFC Informatique", color: "text-blue-400", border: "border-blue-500/30", bg: "bg-blue-500/5", dot: "bg-blue-400" },
             { label: "CFC Médiamatique", color: "text-purple-400", border: "border-purple-500/30", bg: "bg-purple-500/5", dot: "bg-purple-400" },
           ].map((badge) => (
             <span key={badge.label} className={`inline-flex items-center gap-1.5 text-xs ${badge.color} border ${badge.border} rounded-full px-4 py-1.5 ${badge.bg}`}>

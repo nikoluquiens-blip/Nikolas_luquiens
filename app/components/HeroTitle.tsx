@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import CyclicText from "./CyclicText";
 
 const techStack = [
-  "React", "Next.js 15", "TypeScript", "Tailwind CSS", "Git", "Figma",
+  "Canva", "Identité visuelle", "Réseaux sociaux", "Photo & vidéo", "Claude Code", "Communication",
 ];
 
 function CharReveal({ text, delay, className = "" }: { text: string; delay: number; className?: string }) {
@@ -61,7 +61,7 @@ export default function HeroTitle() {
             className="relative inline-block"
           >
             <CyclicText
-              words={["informaticien", "médiamaticien"]}
+              words={["médiamaticien"]}
               className="bg-gradient-to-r from-blue-400 via-sky-300 to-purple-400 bg-clip-text text-transparent"
               interval={3500}
             />

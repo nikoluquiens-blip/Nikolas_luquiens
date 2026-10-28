@@ -7,7 +7,7 @@ import ClipReveal from "../components/ClipReveal";
 
 export const metadata: Metadata = {
   title: "Compétences",
-  description: "Compétences en informatique et en médiamatique de Nikolas Luquiens.",
+  description: "Compétences en médiamatique de Nikolas Luquiens.",
 };
 
 const skills = [
@@ -53,8 +53,8 @@ export default function Competences() {
         </h1>
         <Reveal delay={0.2}>
           <p className="text-gray-400 mt-4 text-lg max-w-xl">
-            En apprentissage constant. Ces compétences reflètent mon niveau actuel à 15 ans, à la croisée
-            de l&apos;informatique et de la médiamatique, avec encore beaucoup à découvrir.
+            En apprentissage constant. Ces compétences reflètent mon niveau actuel à 15 ans en médiamatique,
+            avec encore beaucoup à découvrir.
           </p>
         </Reveal>
       </section>

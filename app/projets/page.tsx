@@ -8,18 +8,17 @@ import ClipReveal from "../components/ClipReveal";
 
 export const metadata: Metadata = {
   title: "Projets",
-  description: "Projets et expériences pratiques de Nikolas Luquiens en informatique et en médiamatique.",
+  description: "Projets et expériences pratiques de Nikolas Luquiens en médiamatique.",
 };
 
 const projects = [
   {
     title: "Capy Hockey (CPHL)",
-    desc: "Un jeu vidéo de hockey complet développé en JavaScript avec Claude Code : moteur physique, IA, plusieurs modes (carrière, franchise, multijoueur). Je prépare aussi son identité visuelle et ses textes marketing pour un lancement sur itch.io et Steam.",
-    tags: ["JavaScript", "Claude Code", "Vercel", "Identité visuelle"],
+    desc: "Un jeu vidéo de hockey complet développé avec Claude Code, dont je conçois l'identité visuelle et les textes marketing pour un lancement sur itch.io et Steam.",
+    tags: ["Claude Code", "Identité visuelle", "Textes marketing"],
     status: "En cours",
     link: null,
     external: false,
-    track: "both",
   },
   {
     title: "Communication & identité visuelle — équipe de hockey",
@@ -28,16 +27,14 @@ const projects = [
     status: "En cours",
     link: null,
     external: false,
-    track: "media",
   },
   {
     title: "Portfolio Personnel",
-    desc: "Mon site portfolio, conçu avec Claude Code sur Next.js 15, TypeScript et Tailwind CSS. Animations avec Motion (Framer Motion v12), SEO optimisé.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Motion"],
+    desc: "Mon site portfolio, conçu avec Claude Code — direction artistique, contenu et SEO.",
+    tags: ["Claude Code", "Identité visuelle", "SEO"],
     status: "En cours",
     link: "/",
     external: false,
-    track: "info",
   },
   {
     title: "Exposé — Les quatre langues de la Suisse",
@@ -46,7 +43,6 @@ const projects = [
     status: "Terminé",
     link: null,
     external: false,
-    track: "media",
   },
   {
     title: "Journée découverte — Rouge FM",
@@ -55,7 +51,6 @@ const projects = [
     status: "Terminé",
     link: null,
     external: false,
-    track: "media",
   },
 ];
 
@@ -72,8 +67,8 @@ export default function Projets() {
         </h1>
         <Reveal delay={0.2}>
           <p className="text-gray-400 mt-4 text-lg max-w-xl">
-            Projets réalisés dans le cadre de mon apprentissage, de mon stage et de mes cours — en informatique
-            comme en médiamatique. D&apos;autres arrivent bientôt.
+            Projets réalisés dans le cadre de mon apprentissage, de mon stage et de mes cours en médiamatique.
+            D&apos;autres arrivent bientôt.
           </p>
         </Reveal>
       </section>
@@ -99,7 +94,7 @@ export default function Projets() {
             </Reveal>
             <Reveal delay={0.15}>
               <div className="flex flex-wrap gap-2">
-                {["Next.js", "React", "Tailwind CSS", "Vercel", "TypeScript"].map((tag) => (
+                {["Claude Code", "Vercel", "Déploiement continu"].map((tag) => (
                   <span key={tag} className="text-xs bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-gray-400">
                     {tag}
                   </span>
@@ -145,68 +140,52 @@ export default function Projets() {
           <p className="text-gray-500 text-xs uppercase tracking-widest mb-10">Autres réalisations</p>
         </ClipReveal>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl">
-          {projects.map((p, i) => {
-            const isMedia = p.track === "media";
-            const isBoth = p.track === "both";
-            const hoverBorder = isBoth
-              ? "hover:border-violet-500/40 hover:shadow-violet-500/10"
-              : isMedia
-              ? "hover:border-purple-500/40 hover:shadow-purple-500/10"
-              : "hover:border-blue-500/40 hover:shadow-blue-500/10";
-            const tagText = isBoth ? "Informatique + Médiamatique" : isMedia ? "Médiamatique" : "Informatique";
-            const tagColor = isBoth
-              ? "border-violet-500/30 text-violet-400"
-              : isMedia
-              ? "border-purple-500/30 text-purple-400"
-              : "border-blue-500/30 text-blue-400";
-            return (
-              <Reveal key={p.title} delay={i * 0.1}>
-                <TiltCard className="h-full">
-                  <div className={`glass-card border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl ${hoverBorder} flex flex-col gap-4 h-full`}>
-                    <div className="flex items-start justify-between gap-3">
-                      <h3 className="text-lg font-semibold leading-snug">{p.title}</h3>
-                      <span className={`text-xs px-3 py-1 rounded-full border whitespace-nowrap flex-shrink-0 ${
-                        p.status === "En cours" || p.status === "En ligne"
-                          ? "border-green-500/30 text-green-400"
-                          : "border-white/10 text-gray-500"
-                      }`}>
-                        {p.status}
-                      </span>
-                    </div>
-                    <span className={`text-xs border rounded-full px-2.5 py-0.5 w-fit ${tagColor}`}>{tagText}</span>
-                    <p className="text-gray-500 text-sm leading-relaxed">{p.desc}</p>
-                    <div className="flex flex-wrap gap-2 mt-auto">
-                      {p.tags.map((tag) => (
-                        <span key={tag} className="text-xs bg-white/5 border border-white/10 px-3 py-1 rounded-full text-gray-400">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    {p.link && (
-                      p.external ? (
-                        <a
-                          href={p.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          data-cursor-text="Voir"
-                          className={`group inline-flex items-center gap-2 text-sm transition-colors mt-1 ${isMedia ? "text-purple-400 hover:text-purple-300" : isBoth ? "text-violet-400 hover:text-violet-300" : "text-blue-400 hover:text-blue-300"}`}
-                        >
-                          Voir le projet <span className="transition-transform group-hover:translate-x-1">→</span>
-                        </a>
-                      ) : (
-                        <Link
-                          href={p.link}
-                          className={`group inline-flex items-center gap-2 text-sm transition-colors mt-1 ${isMedia ? "text-purple-400 hover:text-purple-300" : isBoth ? "text-violet-400 hover:text-violet-300" : "text-blue-400 hover:text-blue-300"}`}
-                        >
-                          Voir le projet <span className="transition-transform group-hover:translate-x-1">→</span>
-                        </Link>
-                      )
-                    )}
+          {projects.map((p, i) => (
+            <Reveal key={p.title} delay={i * 0.1}>
+              <TiltCard className="h-full">
+                <div className="glass-card border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-purple-500/40 hover:shadow-purple-500/10 flex flex-col gap-4 h-full">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-lg font-semibold leading-snug">{p.title}</h3>
+                    <span className={`text-xs px-3 py-1 rounded-full border whitespace-nowrap flex-shrink-0 ${
+                      p.status === "En cours" || p.status === "En ligne"
+                        ? "border-green-500/30 text-green-400"
+                        : "border-white/10 text-gray-500"
+                    }`}>
+                      {p.status}
+                    </span>
                   </div>
-                </TiltCard>
-              </Reveal>
-            );
-          })}
+                  <p className="text-gray-500 text-sm leading-relaxed">{p.desc}</p>
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {p.tags.map((tag) => (
+                      <span key={tag} className="text-xs bg-white/5 border border-white/10 px-3 py-1 rounded-full text-gray-400">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  {p.link && (
+                    p.external ? (
+                      <a
+                        href={p.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-cursor-text="Voir"
+                        className="group inline-flex items-center gap-2 text-sm transition-colors mt-1 text-purple-400 hover:text-purple-300"
+                      >
+                        Voir le projet <span className="transition-transform group-hover:translate-x-1">→</span>
+                      </a>
+                    ) : (
+                      <Link
+                        href={p.link}
+                        className="group inline-flex items-center gap-2 text-sm transition-colors mt-1 text-purple-400 hover:text-purple-300"
+                      >
+                        Voir le projet <span className="transition-transform group-hover:translate-x-1">→</span>
+                      </Link>
+                    )
+                  )}
+                </div>
+              </TiltCard>
+            </Reveal>
+          ))}
         </div>
       </section>
 

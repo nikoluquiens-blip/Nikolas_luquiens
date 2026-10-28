@@ -7,7 +7,7 @@ import { posts as publishedPosts } from "./posts";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Réflexions de Nikolas Luquiens sur son apprentissage en informatique et en médiamatique.",
+  description: "Réflexions de Nikolas Luquiens sur son apprentissage en médiamatique.",
 };
 
 const upcoming = [

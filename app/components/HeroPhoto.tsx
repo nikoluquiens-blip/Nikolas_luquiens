@@ -6,7 +6,7 @@ import type { MouseEvent } from "react";
 
 const badges = [
   {
-    label: "🚀 React & Next.js",
+    label: "✨ Création de contenu",
     className: "top-4 -left-6 md:-left-14",
     duration: 5,
     delay: 1.0,

@@ -6,10 +6,10 @@ import Reveal from "./Reveal";
 const milestones = [
   {
     tag: "Le déclic",
-    title: "La découverte du développement web",
-    desc: "Mon père travaille dans le développement web, avec WordPress. Le voir construire des sites et résoudre des problèmes techniques a éveillé ma curiosité très tôt.",
-    dot: "bg-blue-400 shadow-[0_0_10px_2px_rgba(96,165,250,0.6)]",
-    label: "text-blue-400",
+    title: "La découverte du web",
+    desc: "Mon père travaille dans le développement web, avec WordPress. Le voir construire des sites et raconter des histoires en ligne a éveillé très tôt ma curiosité pour le digital.",
+    dot: "bg-purple-400 shadow-[0_0_10px_2px_rgba(168,85,247,0.6)]",
+    label: "text-purple-400",
   },
   {
     tag: "Direction radio",
@@ -20,31 +20,31 @@ const milestones = [
   },
   {
     tag: "Le tournant",
-    title: "Un stage qui change tout",
-    desc: "Stage chez Stormbolt sans penser que ça changerait mon projet. J'y ai conçu GoalieCoach avec Claude Code, une app de planification d'entraînements pour les jeunes gardiens que je coache — un vrai coup de cœur pour le développement, que je n'attendais pas du tout.",
-    dot: "bg-blue-400 shadow-[0_0_10px_2px_rgba(96,165,250,0.6)]",
-    label: "text-blue-400",
+    title: "Un stage qui m'a beaucoup appris",
+    desc: "Stage chez Stormbolt, où j'ai conçu GoalieCoach avec Claude Code — une app de planification d'entraînements pour les jeunes gardiens que je coache. Une vraie expérience de terrain, qui nourrit aussi ma curiosité pour le digital.",
+    dot: "bg-purple-400 shadow-[0_0_10px_2px_rgba(168,85,247,0.6)]",
+    label: "text-purple-400",
   },
   {
     tag: "Depuis juillet 2026",
-    title: "Capy Hockey, mon premier jeu vidéo",
-    desc: "Je développe seul un jeu de hockey complet avec Claude Code — moteur physique, IA, plusieurs modes de jeu — en préparant aussi son identité visuelle pour un lancement sur itch.io et Steam.",
+    title: "Capy Hockey, mon premier projet créatif complet",
+    desc: "Je pilote avec Claude Code le développement d'un jeu de hockey complet, et je conçois son identité visuelle et ses textes marketing pour un lancement sur itch.io et Steam.",
     dot: "bg-purple-400 shadow-[0_0_10px_2px_rgba(168,85,247,0.6)]",
     label: "text-purple-400",
   },
   {
     tag: "Aujourd'hui",
-    title: "Deux voies, un seul objectif",
-    desc: "Je ne veux plus choisir entre les deux : je me prépare maintenant pour deux CFC, informaticien et médiamaticien.",
-    dot: "bg-gradient-to-br from-blue-400 to-purple-400 shadow-[0_0_14px_3px_rgba(139,92,246,0.7)]",
-    label: "bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent",
+    title: "Un objectif clair",
+    desc: "Entre la radio, la création de contenu et la communication digitale, mon chemin est tout tracé : devenir médiamaticien.",
+    dot: "bg-gradient-to-br from-purple-400 to-fuchsia-400 shadow-[0_0_14px_3px_rgba(168,85,247,0.7)]",
+    label: "bg-gradient-to-r from-purple-400 to-fuchsia-400 bg-clip-text text-transparent",
   },
   {
     tag: "Rentrée 2027",
     title: "L'objectif",
-    desc: "Décrocher un contrat d'apprentissage — dans l'une de ces deux voies, ou pourquoi pas les deux — pour continuer à apprendre sur le terrain.",
-    dot: "bg-gradient-to-br from-blue-400 to-purple-400 shadow-[0_0_14px_3px_rgba(139,92,246,0.7)]",
-    label: "bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent",
+    desc: "Décrocher un contrat d'apprentissage médiamaticien pour continuer à apprendre sur le terrain.",
+    dot: "bg-gradient-to-br from-purple-400 to-fuchsia-400 shadow-[0_0_14px_3px_rgba(168,85,247,0.7)]",
+    label: "bg-gradient-to-r from-purple-400 to-fuchsia-400 bg-clip-text text-transparent",
   },
 ];
 
@@ -62,7 +62,7 @@ export default function Timeline() {
       <div className="absolute left-2 top-1 bottom-1 w-px bg-white/8" />
       <motion.div
         style={{ scaleY: fill }}
-        className="absolute left-2 top-1 bottom-1 w-px bg-gradient-to-b from-blue-400 via-purple-400 to-blue-500 origin-top"
+        className="absolute left-2 top-1 bottom-1 w-px bg-gradient-to-b from-purple-400 via-fuchsia-400 to-purple-500 origin-top"
       />
 
       <div className="flex flex-col gap-10">

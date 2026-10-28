@@ -58,17 +58,17 @@ export default function ScrollVelocity() {
     <div className="bg-gradient-to-r from-[#0d0d10] via-[#111118] to-[#0d0d10] border-y border-white/5 overflow-hidden marquee-mask py-0.5 select-none">
       <VelocityTrack baseVelocity={60}>
         <span className="inline-flex items-center gap-10 pr-10 py-3 text-sm">
-          <span className="text-blue-400 font-medium">⟨/⟩ Développement web</span>
+          <span className="text-blue-400 font-medium">📷 Création visuelle</span>
           <span className="text-white/10">·</span>
-          <span className="text-gray-500">React &amp; Next.js</span>
+          <span className="text-gray-500">Canva &amp; Identité visuelle</span>
           <span className="text-white/10">·</span>
-          <span className="text-blue-400 font-medium">Tailwind CSS</span>
+          <span className="text-blue-400 font-medium">Réseaux sociaux</span>
           <span className="text-white/10">·</span>
-          <span className="text-gray-500">UI / UX Design</span>
+          <span className="text-gray-500">Photo &amp; vidéo</span>
           <span className="text-white/10">·</span>
-          <span className="text-blue-400 font-medium">Vercel · TypeScript</span>
+          <span className="text-blue-400 font-medium">Claude Code · UI / UX</span>
           <span className="text-white/10">·</span>
-          <span className="text-gray-500">CFC Informatique 2027</span>
+          <span className="text-gray-500">Suisse · 2027</span>
           <span className="text-white/10">·</span>
         </span>
       </VelocityTrack>

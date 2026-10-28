@@ -13,7 +13,6 @@ const navLinks = [
 ];
 
 const tracks = [
-  { label: "CFC Informatique", color: "text-blue-400", dot: "bg-blue-400" },
   { label: "CFC Médiamatique", color: "text-purple-400", dot: "bg-purple-400" },
 ];
 
@@ -53,7 +52,7 @@ export default function Footer() {
             </motion.span>
           </Link>
           <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-            15 ans, 11VG. Futur informaticien ou médiamaticien. En préparation active pour la rentrée 2027.
+            15 ans, 11VG. Futur médiamaticien. En préparation active pour la rentrée 2027.
           </p>
           <div className="space-y-2">
             {tracks.map((t, i) => (

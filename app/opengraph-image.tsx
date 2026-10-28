@@ -54,8 +54,7 @@ export default function OpengraphImage() {
             marginTop: 14,
           }}
         >
-          <span style={{ color: "#93c5fd" }}>Futur informaticien</span>
-          <span style={{ color: "white", margin: "0 14px" }}>ou</span>
+          <span style={{ color: "white", marginRight: 14 }}>Futur</span>
           <span style={{ color: "#d8b4fe" }}>médiamaticien</span>
         </div>
 
