@@ -11,8 +11,7 @@ import SignalWave from "./components/SignalWave";
 import ConfettiButton from "./components/ConfettiButton";
 import QuoteSection from "./components/QuoteSection";
 import ScrollVelocity from "./components/ScrollVelocity";
-import SpotlightCard from "./components/SpotlightCard";
-import TiltCard from "./components/TiltCard";
+import HoverCard from "./components/HoverCard";
 import ClipReveal from "./components/ClipReveal";
 import BrowserMockup from "./components/BrowserMockup";
 import { posts } from "./blog/posts";
@@ -58,8 +57,8 @@ const mediaServices = [
 
 const stats = [
   { value: 15, suffix: "", label: "ans", sub: "Passionné depuis toujours", accent: "from-white to-blue-200" },
-  { value: 2027, suffix: "", label: "rentrée visée", sub: "CFC médiamatique", accent: "from-blue-300 to-sky-400" },
-  { value: 1, suffix: "", label: "stage effectué", sub: "En développement web", accent: "from-white to-gray-300" },
+  { value: 2027, suffix: "", label: "rentrée visée", sub: "CFC médiamaticien ou interactive media designer", accent: "from-blue-300 to-sky-400" },
+  { value: 3, suffix: "", label: "stages effectués", sub: "Médiamaticien · Interactive media designer · Informatique (développement web)", accent: "from-white to-gray-300" },
   { value: 100, suffix: "%", label: "motivé", sub: "Les deux voies, une ambition", accent: "from-blue-400 to-purple-400" },
 ];
 
@@ -237,16 +236,16 @@ export default function WelcomePage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl">
           {stats.map((s, i) => (
             <Reveal key={s.label} delay={i * 0.08}>
-              <SpotlightCard className="h-full">
-                <div className="glass-card border border-white/8 rounded-2xl p-6 hover:border-white/15 transition-colors duration-500 group h-full">
-                  <p className={`text-5xl md:text-6xl font-black bg-gradient-to-br ${s.accent} bg-clip-text text-transparent leading-none`}>
+              <HoverCard className="h-full">
+                <div className="glass-card border border-white/8 rounded-2xl p-6 group h-full">
+                  <p className={`text-[2.4rem] leading-none sm:text-5xl md:text-6xl font-black bg-gradient-to-br ${s.accent} bg-clip-text text-transparent leading-none`}>
                     <AnimatedNumber value={s.value} />
                     {s.suffix}
                   </p>
                   <p className="text-white/80 text-sm font-medium mt-3">{s.label}</p>
                   <p className="text-gray-600 text-xs mt-1 leading-tight">{s.sub}</p>
                 </div>
-              </SpotlightCard>
+              </HoverCard>
             </Reveal>
           ))}
         </div>
@@ -263,8 +262,8 @@ export default function WelcomePage() {
           </h2>
         </ClipReveal>
         <Reveal delay={0.1}>
-          <TiltCard>
-            <div className="glass-card border border-white/10 rounded-2xl p-8 hover:border-blue-500/25 transition-all duration-500">
+          <HoverCard>
+            <div className="glass-card border border-white/10 rounded-2xl p-8">
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_55%] gap-10 items-center">
                 <div className="space-y-5">
                   <div className="flex items-center gap-3">
@@ -292,7 +291,7 @@ export default function WelcomePage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       data-cursor-text="Voir"
-                      className="group inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
+                      className="group inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-5 py-2.5 rounded-xl text-sm btn-fx hover:shadow-lg hover:shadow-blue-500/30"
                     >
                       Voir le projet live
                       <span className="group-hover:translate-x-0.5 transition-transform">→</span>
@@ -305,7 +304,7 @@ export default function WelcomePage() {
                 <BrowserMockup />
               </div>
             </div>
-          </TiltCard>
+          </HoverCard>
         </Reveal>
       </section>
 
@@ -329,13 +328,13 @@ export default function WelcomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl">
           {mediaServices.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.08}>
-              <SpotlightCard spotColor="rgba(168,85,247,0.16)" className="h-full">
-                <div className="group glass-card border border-white/10 rounded-2xl p-8 hover:border-purple-500/30 transition-all duration-500 h-full">
+              <HoverCard accent="purple" className="h-full">
+                <div className="group glass-card border border-white/10 rounded-2xl p-8 h-full">
                   <div className="mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 inline-block">{s.icon}</div>
                   <h3 className="text-xl font-semibold mb-3">{s.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
                 </div>
-              </SpotlightCard>
+              </HoverCard>
             </Reveal>
           ))}
         </div>
@@ -370,8 +369,8 @@ export default function WelcomePage() {
             },
           ].map((v, i) => (
             <Reveal key={v.title} delay={i * 0.1}>
-              <TiltCard className="h-full">
-                <div className="glass-card border border-white/10 rounded-2xl p-8 hover:border-blue-500/30 transition-all duration-300 h-full flex flex-col gap-4">
+              <HoverCard className="h-full">
+                <div className="glass-card border border-white/10 rounded-2xl p-8 h-full flex flex-col gap-4">
                   <motion.span
                     whileHover={{ scale: 1.3, rotate: [0, -10, 10, 0] }}
                     transition={{ type: "spring", stiffness: 400, damping: 12 }}
@@ -382,7 +381,7 @@ export default function WelcomePage() {
                   <h3 className="text-xl font-semibold">{v.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
                 </div>
-              </TiltCard>
+              </HoverCard>
             </Reveal>
           ))}
         </div>
@@ -410,11 +409,11 @@ export default function WelcomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl">
           {posts.map((post, i) => (
             <Reveal key={post.slug} delay={i * 0.1}>
-              <TiltCard className="h-full">
+              <HoverCard className="h-full">
                 <Link
                   href={`/blog/${post.slug}`}
                   data-cursor-text="Lire"
-                  className="glass-card border border-white/10 rounded-2xl p-8 hover:border-blue-500/40 transition-all duration-300 block group h-full"
+                  className="glass-card border border-white/10 rounded-2xl p-8 block group h-full"
                 >
                   <div className="flex items-center gap-3 mb-5">
                     <span className="text-xs text-gray-600 uppercase tracking-wider">{post.date}</span>
@@ -430,7 +429,7 @@ export default function WelcomePage() {
                     <span className="group-hover:translate-x-1.5 transition-transform inline-block">→</span>
                   </div>
                 </Link>
-              </TiltCard>
+              </HoverCard>
             </Reveal>
           ))}
         </div>

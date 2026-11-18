@@ -54,7 +54,7 @@ export default function BrowserMockup() {
           ].map(({ icon, active }) => (
             <div
               key={icon}
-              className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm cursor-pointer transition-all ${
+              className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm cursor-pointer transition-colors ${
                 active ? "bg-blue-500/20 ring-1 ring-blue-500/40" : "hover:bg-white/5"
               }`}
             >
@@ -114,7 +114,7 @@ export default function BrowserMockup() {
               <span className="text-gray-600 text-[10px] text-center">{p.pos}</span>
               {p.avail.map((av, di) => (
                 <div key={di} className="flex justify-center">
-                  <div className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold transition-all ${
+                  <div className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold transition-colors ${
                     av
                       ? "bg-green-500/15 text-green-400 border border-green-500/20"
                       : "bg-red-500/10 text-red-500/70 border border-red-500/15"

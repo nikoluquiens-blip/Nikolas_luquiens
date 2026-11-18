@@ -235,3 +235,94 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* ── Survol des cartes (composant HoverCard) ──────────────────────────
+   Un seul langage pour toutes les cartes : reflet qui suit le curseur,
+   bord éclairé à l'endroit du curseur, légère montée. Seulement avec une
+   vraie souris ; au clavier, le focus produit le même éclairage. */
+.hover-card {
+  --accent: 96 165 250;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.hover-card[data-accent="purple"] {
+  --accent: 168 85 247;
+}
+.hover-card__spot,
+.hover-card__edge {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.hover-card__spot {
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 50%),
+    rgb(var(--accent) / 0.1),
+    transparent 70%
+  );
+}
+/* Le masque ne laisse voir que la bordure (1px) : seul le bord s'allume. */
+.hover-card__edge {
+  padding: 1px;
+  background: radial-gradient(
+    220px circle at var(--mx, 50%) var(--my, 50%),
+    rgb(var(--accent) / 0.8),
+    transparent 70%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+@media (hover: hover) and (pointer: fine) {
+  .hover-card:hover {
+    transform: translateY(-4px);
+  }
+  .hover-card:hover > .hover-card__spot,
+  .hover-card:hover > .hover-card__edge {
+    opacity: 1;
+  }
+}
+.hover-card:has(:focus-visible) > .hover-card__spot,
+.hover-card:has(:focus-visible) > .hover-card__edge {
+  opacity: 1;
+}
+
+/* ── Boutons ─────────────────────────────────────────────────────────
+   Transition ciblée (pas de « transition: all ») + retour tactile au clic. */
+.btn-fx {
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-fx:active {
+  transform: scale(0.97);
+}
+
+/* ── Liens texte ─────────────────────────────────────────────────────
+   Le soulignement se dessine de gauche à droite à l'arrivée du curseur
+   et repart vers la droite à sa sortie (d'où le changement d'ancrage). */
+.link-underline {
+  background: linear-gradient(currentColor, currentColor) no-repeat right bottom / 0% 1px;
+  padding-bottom: 2px;
+  transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s ease;
+}
+.link-underline:hover,
+.link-underline:focus-visible,
+a:hover > .link-underline,
+a:focus-visible > .link-underline {
+  background-position: left bottom;
+  background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hover-card,
+  .hover-card:hover {
+    transform: none;
+  }
+}

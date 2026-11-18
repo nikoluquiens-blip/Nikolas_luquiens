@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Reveal from "../components/Reveal";
-import TiltCard from "../components/TiltCard";
+import HoverCard from "../components/HoverCard";
 import SplitText from "../components/SplitText";
 import ClipReveal from "../components/ClipReveal";
 
@@ -113,11 +113,12 @@ export default function Competences() {
           <p className="text-gray-500 text-xs uppercase tracking-widest mb-10">Certification</p>
         </ClipReveal>
         <Reveal>
+          <HoverCard accent="purple" className="max-w-xl">
           <a
             href="/certificats/claude-101.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-between gap-6 max-w-xl glass-card border border-white/10 hover:border-purple-500/40 rounded-2xl p-6 transition-colors duration-300"
+            className="flex items-center justify-between gap-6 glass-card border border-white/10 rounded-2xl p-6"
           >
             <div>
               <h3 className="text-white font-semibold">Claude 101</h3>
@@ -127,6 +128,7 @@ export default function Competences() {
               Voir le certificat <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
             </span>
           </a>
+          </HoverCard>
         </Reveal>
       </section>
 
@@ -163,13 +165,13 @@ export default function Competences() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl">
           {softSkills.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.1}>
-              <TiltCard className="h-full">
-                <div className="glass-card border border-white/10 rounded-2xl p-6 hover:border-blue-500/40 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-blue-500/10 h-full">
+              <HoverCard className="h-full">
+                <div className="glass-card border border-white/10 rounded-2xl p-6 h-full">
                   <p className="text-3xl mb-4 transition-transform duration-300 hover:scale-125 inline-block">{s.icon}</p>
                   <h3 className="text-white font-semibold mb-2">{s.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
                 </div>
-              </TiltCard>
+              </HoverCard>
             </Reveal>
           ))}
         </div>

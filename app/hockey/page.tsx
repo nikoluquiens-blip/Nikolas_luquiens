@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import Reveal from "../components/Reveal";
 import SplitText from "../components/SplitText";
-import TiltCard from "../components/TiltCard";
+import HoverCard from "../components/HoverCard";
 
 const seasons = [
   "2017-2018",
@@ -106,11 +106,11 @@ export default function HockeyGallery() {
             >
               {currentPhotos.map((src, i) => (
                 <Reveal key={src} delay={i * 0.05}>
-                  <TiltCard>
+                  <HoverCard rounded="xl">
                     <button
                       onClick={() => setLightbox(i)}
                       data-cursor-text="Zoom"
-                      className="relative aspect-square w-full rounded-xl overflow-hidden border border-white/10 hover:border-blue-500/40 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 cursor-pointer"
+                      className="relative aspect-square w-full rounded-xl overflow-hidden border border-white/10 cursor-pointer"
                     >
                       <Image
                         src={src}
@@ -120,7 +120,7 @@ export default function HockeyGallery() {
                         className="object-cover transition-transform duration-500 hover:scale-110"
                       />
                     </button>
-                  </TiltCard>
+                  </HoverCard>
                 </Reveal>
               ))}
             </motion.div>

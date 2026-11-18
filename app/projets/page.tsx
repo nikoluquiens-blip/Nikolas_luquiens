@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "../components/Reveal";
-import TiltCard from "../components/TiltCard";
+import HoverCard from "../components/HoverCard";
 import SplitText from "../components/SplitText";
 import BrowserMockup from "../components/BrowserMockup";
 import ClipReveal from "../components/ClipReveal";
@@ -124,7 +124,7 @@ export default function Projets() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-cursor-text="Voir"
-                className="group inline-flex items-center gap-2.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl text-sm transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
+                className="group inline-flex items-center gap-2.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl text-sm btn-fx hover:shadow-lg hover:shadow-blue-500/30"
               >
                 Voir le projet live
                 <span className="group-hover:translate-x-0.5 transition-transform">→</span>
@@ -145,8 +145,8 @@ export default function Projets() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl">
           {projects.map((p, i) => (
             <Reveal key={p.title} delay={i * 0.1}>
-              <TiltCard className="h-full">
-                <div className="glass-card border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-purple-500/40 hover:shadow-purple-500/10 flex flex-col gap-4 h-full">
+              <HoverCard accent="purple" className="h-full">
+                <div className="glass-card border border-white/10 rounded-2xl p-8 flex flex-col gap-4 h-full">
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="text-lg font-semibold leading-snug">{p.title}</h3>
                     <span className={`text-xs px-3 py-1 rounded-full border whitespace-nowrap flex-shrink-0 ${
@@ -174,19 +174,19 @@ export default function Projets() {
                         data-cursor-text="Voir"
                         className="group inline-flex items-center gap-2 text-sm transition-colors mt-1 text-purple-400 hover:text-purple-300"
                       >
-                        {"linkLabel" in p ? p.linkLabel : "Voir le projet"} <span className="transition-transform group-hover:translate-x-1">→</span>
+                        <span className="link-underline">{"linkLabel" in p ? p.linkLabel : "Voir le projet"}</span> <span className="transition-transform group-hover:translate-x-1">→</span>
                       </a>
                     ) : (
                       <Link
                         href={p.link}
                         className="group inline-flex items-center gap-2 text-sm transition-colors mt-1 text-purple-400 hover:text-purple-300"
                       >
-                        Voir le projet <span className="transition-transform group-hover:translate-x-1">→</span>
+                        <span className="link-underline">Voir le projet</span> <span className="transition-transform group-hover:translate-x-1">→</span>
                       </Link>
                     )
                   )}
                 </div>
-              </TiltCard>
+              </HoverCard>
             </Reveal>
           ))}
         </div>

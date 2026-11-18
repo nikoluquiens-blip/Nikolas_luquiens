@@ -94,7 +94,7 @@ export default function NavBar() {
 
           <MagneticButton
             href="/contact"
-            className="hidden md:inline-flex border border-white/25 rounded-full px-5 py-2 text-sm hover:bg-white hover:text-black transition-all duration-300 font-medium"
+            className="hidden md:inline-flex border border-white/25 rounded-full px-5 py-2 text-sm hover:bg-white hover:text-black btn-fx font-medium"
           >
             Me contacter
           </MagneticButton>
@@ -164,7 +164,7 @@ export default function NavBar() {
                 >
                   <Link
                     href="/contact"
-                    className="border border-white/25 rounded-full px-5 py-2.5 text-sm text-center hover:bg-white hover:text-black transition-all duration-300 block font-medium"
+                    className="border border-white/25 rounded-full px-5 py-2.5 text-sm text-center hover:bg-white hover:text-black btn-fx block font-medium"
                     onClick={() => setOpen(false)}
                   >
                     Me contacter

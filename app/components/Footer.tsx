@@ -100,15 +100,11 @@ export default function Footer() {
               >
                 <Link
                   href={link.href}
-                  className="text-gray-500 hover:text-white text-sm transition-colors group flex items-center gap-1"
+                  className="text-gray-500 hover:text-white text-sm transition-colors"
                 >
-                  <motion.span
-                    whileHover={{ x: 3 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                    className="inline-block"
-                  >
+                  <span className="link-underline">
                     {link.label}
-                  </motion.span>
+                  </span>
                 </Link>
               </motion.div>
             ))}
@@ -130,7 +126,7 @@ export default function Footer() {
             href="mailto:niko.luquiens@icloud.com"
             whileHover={{ x: 3, color: "#ffffff" }}
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            className="text-gray-400 text-sm transition-colors block"
+            className="text-gray-400 text-sm block w-fit link-underline"
           >
             niko.luquiens@icloud.com
           </motion.a>
@@ -140,14 +136,14 @@ export default function Footer() {
             rel="noopener noreferrer"
             whileHover={{ x: 3, color: "#ffffff" }}
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            className="text-gray-400 text-sm transition-colors block"
+            className="text-gray-400 text-sm block w-fit link-underline"
           >
             Instagram · @nikolas_luquiens
           </motion.a>
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 400, damping: 20 }}>
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-5 py-3 rounded-xl text-sm transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
+              className="group inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-5 py-3 rounded-xl text-sm btn-fx hover:shadow-lg hover:shadow-blue-500/25"
             >
               Envoyer un message
               <span className="group-hover:translate-x-1 transition-transform">→</span>
@@ -167,10 +163,10 @@ export default function Footer() {
           © 2026 Nikolas Luquiens — Tous droits réservés.
         </p>
         <div className="flex items-center gap-4">
-          <Link href="/mentions-legales" className="text-gray-400 hover:text-white text-xs transition-colors">
+          <Link href="/mentions-legales" className="link-underline text-gray-400 hover:text-white text-xs">
             Mentions légales
           </Link>
-          <Link href="/confidentialite" className="text-gray-400 hover:text-white text-xs transition-colors">
+          <Link href="/confidentialite" className="link-underline text-gray-400 hover:text-white text-xs">
             Confidentialité
           </Link>
         </div>

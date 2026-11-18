@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "../components/Reveal";
 import SplitText from "../components/SplitText";
-import TiltCard from "../components/TiltCard";
+import HoverCard from "../components/HoverCard";
 import { posts as publishedPosts } from "./posts";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Réflexions de Nikolas Luquiens sur son apprentissage en médiamatique.",
+  description: "Réflexions de Nikolas Luquiens sur son parcours, ses projets et les médias.",
 };
 
 const upcoming = [
@@ -61,8 +61,8 @@ export default function Blog() {
         </h1>
         <Reveal delay={0.2}>
           <p className="text-gray-400 mt-4 text-lg max-w-xl">
-            Réflexions sur mon apprentissage, mes projets, et mes deux passions : le développement web
-            et la médiamatique.
+            Réflexions sur mon parcours, mes projets et ce qui me passionne : les médias
+            et la création.
           </p>
         </Reveal>
       </section>
@@ -73,9 +73,9 @@ export default function Blog() {
           {posts.map((post, i) => {
             const card = (
               <div
-                className={`border rounded-2xl p-8 transition-all duration-300 h-full ${
+                className={`border rounded-2xl p-8 h-full ${
                   post.slug
-                    ? "glass-card border-white/10 hover:border-blue-500/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/10 cursor-pointer"
+                    ? "glass-card border-white/10 cursor-pointer"
                     : "border-white/5 opacity-50"
                 }`}
               >
@@ -102,11 +102,11 @@ export default function Blog() {
             return (
               <Reveal key={i} delay={i * 0.1}>
                 {post.slug ? (
-                  <TiltCard>
+                  <HoverCard>
                     <Link href={`/blog/${post.slug}`} data-cursor-text="Lire">
                       {card}
                     </Link>
-                  </TiltCard>
+                  </HoverCard>
                 ) : (
                   card
                 )}

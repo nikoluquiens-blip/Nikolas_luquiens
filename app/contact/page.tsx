@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Reveal from "../components/Reveal";
 import SplitText from "../components/SplitText";
-import TiltCard from "../components/TiltCard";
+import HoverCard from "../components/HoverCard";
 import CopyEmailButton from "../components/CopyEmailButton";
 import ContactForm from "../components/ContactForm";
 
@@ -45,8 +45,8 @@ export default function Contact() {
           {/* Right — info cards */}
           <div className="flex flex-col gap-5">
             <Reveal delay={0.1}>
-              <TiltCard>
-                <div className="glass-card border border-white/10 rounded-2xl p-6 hover:border-blue-500/30 transition-all duration-300 flex flex-col gap-3">
+              <HoverCard>
+                <div className="glass-card border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
                   <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
@@ -58,12 +58,12 @@ export default function Contact() {
                     <CopyEmailButton email={EMAIL} />
                   </div>
                 </div>
-              </TiltCard>
+              </HoverCard>
             </Reveal>
 
             <Reveal delay={0.15}>
-              <TiltCard>
-                <div className="glass-card border border-white/10 rounded-2xl p-6 hover:border-blue-500/30 transition-all duration-300 flex flex-col gap-3">
+              <HoverCard>
+                <div className="glass-card border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
                   <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <rect x="3" y="3" width="18" height="18" rx="5" strokeWidth={1.5} />
                     <circle cx="12" cy="12" r="4" strokeWidth={1.5} />
@@ -76,19 +76,19 @@ export default function Contact() {
                       href="https://www.instagram.com/nikolas_luquiens/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-between gap-2 text-xs border border-white/15 hover:border-purple-500/40 hover:bg-purple-500/5 rounded-lg px-3 py-2 transition-all duration-300 text-gray-300 hover:text-white"
+                      className="inline-flex items-center justify-between gap-2 text-xs border border-white/15 hover:border-purple-500/40 hover:bg-purple-500/5 rounded-lg px-3 py-2 btn-fx text-gray-300 hover:text-white"
                     >
                       @nikolas_luquiens
                       <span>↗</span>
                     </a>
                   </div>
                 </div>
-              </TiltCard>
+              </HoverCard>
             </Reveal>
 
             <Reveal delay={0.2}>
-              <TiltCard>
-                <div className="glass-card border border-white/10 rounded-2xl p-6 hover:border-blue-500/30 transition-all duration-300 flex flex-col gap-3">
+              <HoverCard>
+                <div className="glass-card border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
                   <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -103,12 +103,12 @@ export default function Contact() {
                     <span className="text-green-400 text-xs font-medium">Disponible pour 2027</span>
                   </div>
                 </div>
-              </TiltCard>
+              </HoverCard>
             </Reveal>
 
             <Reveal delay={0.3}>
-              <TiltCard>
-                <div className="glass-card border border-white/10 rounded-2xl p-6 hover:border-blue-500/30 transition-all duration-300 flex flex-col gap-3">
+              <HoverCard>
+                <div className="glass-card border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
                   <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -118,12 +118,12 @@ export default function Contact() {
                     <p className="text-gray-500 text-xs">Suisse — détails sur demande.</p>
                   </div>
                 </div>
-              </TiltCard>
+              </HoverCard>
             </Reveal>
 
             <Reveal delay={0.4}>
-              <TiltCard>
-                <div className="glass-card border border-white/10 rounded-2xl p-6 hover:border-blue-500/30 transition-all duration-300 flex flex-col gap-3">
+              <HoverCard>
+                <div className="glass-card border border-white/10 rounded-2xl p-6 flex flex-col gap-3">
                   <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
@@ -133,14 +133,14 @@ export default function Contact() {
                     <a
                       href="/cv/nikolas-luquiens-cv-mediamaticien.pdf"
                       download
-                      className="inline-flex items-center justify-between gap-2 text-xs border border-white/15 hover:border-purple-500/40 hover:bg-purple-500/5 rounded-lg px-3 py-2 transition-all duration-300 text-gray-300 hover:text-white"
+                      className="inline-flex items-center justify-between gap-2 text-xs border border-white/15 hover:border-purple-500/40 hover:bg-purple-500/5 rounded-lg px-3 py-2 btn-fx text-gray-300 hover:text-white"
                     >
                       CV — Nikolas Luquiens
                       <span>↓</span>
                     </a>
                   </div>
                 </div>
-              </TiltCard>
+              </HoverCard>
             </Reveal>
           </div>
         </div>

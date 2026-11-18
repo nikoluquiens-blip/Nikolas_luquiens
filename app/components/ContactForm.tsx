@@ -40,7 +40,7 @@ export default function ContactForm() {
   }
 
   const base =
-    "w-full bg-white/5 border rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm outline-none transition-all duration-300";
+    "w-full bg-white/5 border rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm outline-none transition-[border-color,background-color,box-shadow] duration-300";
 
   const cls = (name: string) =>
     `${base} ${

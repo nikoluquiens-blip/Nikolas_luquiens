@@ -96,7 +96,7 @@ export default function CTASection() {
         >
           <ConfettiButton
             href="/contact"
-            className="group relative inline-flex items-center gap-3 overflow-hidden bg-white text-black font-bold px-10 py-4 rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-white/15 uppercase tracking-widest text-sm"
+            className="group relative inline-flex items-center gap-3 overflow-hidden bg-white text-black font-bold px-10 py-4 rounded-xl btn-fx hover:shadow-2xl hover:shadow-white/15 uppercase tracking-widest text-sm"
           >
             <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-black/8 to-transparent" />
             <span className="relative">Me contacter</span>
@@ -104,7 +104,7 @@ export default function CTASection() {
           </ConfettiButton>
           <MagneticButton
             href="/a-propos"
-            className="inline-flex items-center gap-2 border border-white/20 hover:border-white/50 text-gray-300 hover:text-white px-7 py-4 rounded-xl transition-all duration-300 text-sm font-medium hover:bg-white/5"
+            className="inline-flex items-center gap-2 border border-white/20 hover:border-white/50 text-gray-300 hover:text-white px-7 py-4 rounded-xl btn-fx text-sm font-medium hover:bg-white/5"
           >
             Mon parcours
           </MagneticButton>
