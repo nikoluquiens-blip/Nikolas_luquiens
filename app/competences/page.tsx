@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Reveal from "../components/Reveal";
-import SkillBar from "../components/SkillBar";
 import TiltCard from "../components/TiltCard";
 import SplitText from "../components/SplitText";
 import ClipReveal from "../components/ClipReveal";
@@ -15,20 +14,20 @@ const skills = [
     category: "Médiamatique & Communication",
     color: "purple" as const,
     items: [
-      { name: "Présentation & prise de parole", level: 55 },
-      { name: "Création de contenu (Canva)", level: 50 },
-      { name: "Identité visuelle", level: 50 },
-      { name: "Réseaux sociaux", level: 55 },
-      { name: "Photo & vidéo", level: 45 },
-      { name: "Recherche & rédaction", level: 60 },
+      { name: "Présentation & prise de parole" },
+      { name: "Création de contenu (Canva)" },
+      { name: "Identité visuelle" },
+      { name: "Réseaux sociaux" },
+      { name: "Photo & vidéo" },
+      { name: "Recherche & rédaction" },
     ],
   },
   {
     category: "Autres",
     items: [
-      { name: "Figma / Design UI", level: 40 },
-      { name: "Responsive Design", level: 60 },
-      { name: "Déploiement Vercel", level: 45 },
+      { name: "Figma / Design UI" },
+      { name: "Responsive Design" },
+      { name: "Déploiement Vercel" },
     ],
   },
 ];
@@ -53,8 +52,8 @@ export default function Competences() {
         </h1>
         <Reveal delay={0.2}>
           <p className="text-gray-400 mt-4 text-lg max-w-xl">
-            En apprentissage constant. Ces compétences reflètent mon niveau actuel à 15 ans en médiamatique,
-            avec encore beaucoup à découvrir.
+            Ce que je sais déjà faire à 15 ans en médiamatique, et que je continue
+            d&apos;apprendre chaque jour.
           </p>
         </Reveal>
       </section>
@@ -74,17 +73,14 @@ export default function Competences() {
                   <span className="text-xs text-purple-400 uppercase tracking-widest mb-2 block">Médiamatique</span>
                 )}
                 <h3 className="text-white font-semibold mb-6">{group.category}</h3>
-                <div className="flex flex-col gap-5">
-                  {group.items.map((skill, si) => (
-                    <SkillBar
-                      key={skill.name}
-                      name={skill.name}
-                      level={skill.level}
-                      delay={si * 0.08}
-                      color={"color" in group ? group.color : "blue"}
-                    />
+                <ul className="flex flex-col gap-3">
+                  {group.items.map((skill) => (
+                    <li key={skill.name} className="flex items-center gap-3 text-gray-300 text-sm">
+                      <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${isMedia ? "bg-purple-400" : "bg-blue-400"}`} />
+                      {skill.name}
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </Reveal>
             );

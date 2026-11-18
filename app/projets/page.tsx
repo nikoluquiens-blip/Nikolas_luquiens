@@ -41,8 +41,9 @@ const projects = [
     desc: "Présentation réalisée en duo pour le cours de Tronc Spécifique Histoire : origines, répartition par cantons et particularités des quatre langues nationales suisses.",
     tags: ["Recherche", "Canva", "Présentation orale"],
     status: "Terminé",
-    link: null,
-    external: false,
+    link: "/projets/les-quatre-langues-suisse.pdf",
+    external: true,
+    linkLabel: "Voir la présentation (PDF)",
   },
   {
     title: "Journée découverte — Rouge FM",
@@ -171,7 +172,7 @@ export default function Projets() {
                         data-cursor-text="Voir"
                         className="group inline-flex items-center gap-2 text-sm transition-colors mt-1 text-purple-400 hover:text-purple-300"
                       >
-                        Voir le projet <span className="transition-transform group-hover:translate-x-1">→</span>
+                        {"linkLabel" in p ? p.linkLabel : "Voir le projet"} <span className="transition-transform group-hover:translate-x-1">→</span>
                       </a>
                     ) : (
                       <Link
