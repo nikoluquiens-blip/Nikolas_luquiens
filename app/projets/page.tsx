@@ -70,7 +70,7 @@ export default function Projets() {
         </h1>
         <Reveal delay={0.2}>
           <p className="text-gray-400 mt-4 text-lg max-w-xl">
-            Projets réalisés dans le cadre de mon apprentissage, de mon stage et de mes cours en médiamatique.
+            Projets réalisés pendant mon stage, à l&apos;école et sur mon temps libre.
             D&apos;autres arrivent bientôt.
           </p>
         </Reveal>

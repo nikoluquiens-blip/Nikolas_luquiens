@@ -56,6 +56,8 @@ export default function OpengraphImage() {
         >
           <span style={{ color: "white", marginRight: 14 }}>Futur</span>
           <span style={{ color: "#d8b4fe" }}>médiamaticien</span>
+          <span style={{ color: "white", margin: "0 14px" }}>ou</span>
+          <span style={{ color: "#d8b4fe" }}>interactive media designer</span>
         </div>
 
         <div

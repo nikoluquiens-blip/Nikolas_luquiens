@@ -17,12 +17,17 @@ export default function ClipReveal({
   className?: string;
   once?: boolean;
 }) {
+  // Le déclencheur est le conteneur (toujours visible), pas le contenu masqué
+  // sous la ligne de découpe, qui pour le navigateur n'est jamais « à l'écran ».
   return (
-    <div className={`overflow-hidden ${className}`}>
+    <motion.div
+      className={`overflow-hidden ${className}`}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once, margin: "-30px" }}
+    >
       <motion.div
-        initial={{ y: "105%", opacity: 0 }}
-        whileInView={{ y: "0%", opacity: 1 }}
-        viewport={{ once, margin: "-30px" }}
+        variants={{ hidden: { y: "105%", opacity: 0 }, visible: { y: "0%", opacity: 1 } }}
         transition={{
           type: "spring",
           stiffness: 90,
@@ -33,6 +38,6 @@ export default function ClipReveal({
       >
         {children}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }

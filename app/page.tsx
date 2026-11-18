@@ -7,7 +7,7 @@ import HeroTitle from "./components/HeroTitle";
 import CursorGlow from "./components/CursorGlow";
 import MagneticButton from "./components/MagneticButton";
 import AnimatedNumber from "./components/AnimatedNumber";
-import ParticleField from "./components/ParticleField";
+import SignalWave from "./components/SignalWave";
 import ConfettiButton from "./components/ConfettiButton";
 import QuoteSection from "./components/QuoteSection";
 import ScrollVelocity from "./components/ScrollVelocity";
@@ -78,7 +78,7 @@ export default function WelcomePage() {
       <CursorGlow
         className="relative flex flex-col md:flex-row md:items-center min-h-screen px-8 md:px-16 overflow-hidden"
       >
-        <ParticleField count={32} />
+        <SignalWave />
         <div className="grid-floor" aria-hidden />
         <div className="absolute inset-0 pointer-events-none [box-shadow:inset_0_0_220px_80px_rgba(0,0,0,0.65)]" />
 
@@ -138,9 +138,10 @@ export default function WelcomePage() {
                       d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"
                     />
                   </defs>
-                  <text fontSize="10" fill="rgba(255,255,255,0.65)" letterSpacing="4">
-                    <textPath href="#orbitPath">
-                      REACT • NEXT.JS • TYPESCRIPT • CFC 2027 •
+                  <text fontSize="10" fill="rgba(255,255,255,0.65)">
+                    {/* textLength = circonférence du cercle (2π·40) : le texte fait exactement un tour, sans chevauchement */}
+                    <textPath href="#orbitPath" textLength="251" lengthAdjust="spacing">
+                      APPRENTISSAGE CFC • 2027 •
                     </textPath>
                   </text>
                 </motion.svg>
@@ -161,7 +162,7 @@ export default function WelcomePage() {
 
               <div className="flex flex-col gap-3">
                 <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-                  Je conçois des projets web avec Claude Code depuis mes 14 ans. Passionné par les interfaces modernes — disponible pour un CFC dès 2027.
+                  Je conçois des projets web avec Claude Code depuis mes 14 ans. Disponible pour un CFC dès 2027.
                 </p>
                 {/* Availability pill */}
                 <div className="inline-flex items-center gap-2 self-start">
@@ -318,12 +319,12 @@ export default function WelcomePage() {
         </Reveal>
         <ClipReveal delay={0.05} className="mb-10">
           <h2 className="text-2xl md:text-3xl font-bold">
-            Une seule voie, <span className="text-purple-400">une vraie envie d&apos;apprendre</span>
+            Deux métiers visés, <span className="text-purple-400">une vraie envie d&apos;apprendre</span>
           </h2>
         </ClipReveal>
 
         <Reveal delay={0.1}>
-          <p className="text-purple-400 text-xs uppercase tracking-widest mb-6">Médiamatique</p>
+          <p className="text-purple-400 text-xs uppercase tracking-widest mb-6">Médiamatique · Interactive media design</p>
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl">
           {mediaServices.map((s, i) => (

@@ -6,7 +6,7 @@ import ClipReveal from "../components/ClipReveal";
 
 export const metadata: Metadata = {
   title: "Compétences",
-  description: "Compétences en médiamatique de Nikolas Luquiens.",
+  description: "Compétences de Nikolas Luquiens, futur médiamaticien ou interactive media designer.",
 };
 
 const skills = [
@@ -52,7 +52,7 @@ export default function Competences() {
         </h1>
         <Reveal delay={0.2}>
           <p className="text-gray-400 mt-4 text-lg max-w-xl">
-            Ce que je sais déjà faire à 15 ans en médiamatique, et que je continue
+            Ce que je sais déjà faire à 15 ans, et que je continue
             d&apos;apprendre chaque jour.
           </p>
         </Reveal>
@@ -104,6 +104,29 @@ export default function Competences() {
               </span>
             ))}
           </div>
+        </Reveal>
+      </section>
+
+      {/* Certification */}
+      <section className="px-8 md:px-16 py-16 border-b border-white/5">
+        <ClipReveal>
+          <p className="text-gray-500 text-xs uppercase tracking-widest mb-10">Certification</p>
+        </ClipReveal>
+        <Reveal>
+          <a
+            href="/certificats/claude-101.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-between gap-6 max-w-xl glass-card border border-white/10 hover:border-purple-500/40 rounded-2xl p-6 transition-colors duration-300"
+          >
+            <div>
+              <h3 className="text-white font-semibold">Claude 101</h3>
+              <p className="text-gray-500 text-sm mt-1">Certificat de réussite délivré par Anthropic</p>
+            </div>
+            <span className="text-sm text-purple-400 group-hover:text-purple-300 whitespace-nowrap">
+              Voir le certificat <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </span>
+          </a>
         </Reveal>
       </section>
 

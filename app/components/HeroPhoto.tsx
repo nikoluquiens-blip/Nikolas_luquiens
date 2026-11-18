@@ -13,7 +13,7 @@ const badges = [
     drift: -9,
   },
   {
-    label: "🎙️ Médiamatique",
+    label: "🎙️ Médiamatique · IMD",
     className: "bottom-12 -right-4 md:-right-16",
     duration: 6,
     delay: 1.3,
@@ -55,7 +55,7 @@ export default function HeroPhoto() {
       initial={{ opacity: 0, x: 40, scale: 0.92 }}
       animate={{ opacity: 1, x: 0, scale: 1 }}
       transition={{ type: "spring", stiffness: 120, damping: 22, delay: 0.35 }}
-      className="hidden md:flex relative z-10 items-center justify-center md:ml-auto mr-4 md:mr-10 my-10 md:my-0 shrink-0"
+      className="hidden lg:flex relative z-10 items-center justify-center lg:ml-auto lg:mr-10 shrink-0"
       style={{ perspective: 900 }}
     >
       {/* Rotating outer orbit ring */}

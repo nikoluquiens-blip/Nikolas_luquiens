@@ -15,17 +15,10 @@ export default function Reveal({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y, scale: 0.96, filter: "blur(5px)" }}
-      whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{
-        type: "spring",
-        stiffness: 100,
-        damping: 20,
-        delay,
-        opacity: { duration: 0.4, delay },
-        filter: { duration: 0.4, delay },
-      }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
       className={className}
     >
       {children}

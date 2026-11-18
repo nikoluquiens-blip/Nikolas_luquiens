@@ -1,6 +1,6 @@
 "use client";
-import { useRef } from "react";
-import { motion, useScroll, useSpring } from "motion/react";
+import { useRef, useState } from "react";
+import { motion, useMotionValueEvent, useScroll, useSpring } from "motion/react";
 import Reveal from "./Reveal";
 
 const milestones = [
@@ -35,14 +35,14 @@ const milestones = [
   {
     tag: "Aujourd'hui",
     title: "Un objectif clair",
-    desc: "Entre la radio, la création de contenu et la communication digitale, mon chemin est tout tracé : devenir médiamaticien.",
+    desc: "Entre la radio, la création de contenu et la communication digitale, je vise deux métiers proches : médiamaticien ou interactive media designer.",
     dot: "bg-gradient-to-br from-purple-400 to-fuchsia-400 shadow-[0_0_14px_3px_rgba(168,85,247,0.7)]",
     label: "bg-gradient-to-r from-purple-400 to-fuchsia-400 bg-clip-text text-transparent",
   },
   {
     tag: "Rentrée 2027",
     title: "L'objectif",
-    desc: "Décrocher un contrat d'apprentissage médiamaticien pour continuer à apprendre sur le terrain.",
+    desc: "Décrocher un contrat d'apprentissage de médiamaticien ou d'interactive media designer pour continuer à apprendre sur le terrain.",
     dot: "bg-gradient-to-br from-purple-400 to-fuchsia-400 shadow-[0_0_14px_3px_rgba(168,85,247,0.7)]",
     label: "bg-gradient-to-r from-purple-400 to-fuchsia-400 bg-clip-text text-transparent",
   },
@@ -55,6 +55,13 @@ export default function Timeline() {
     offset: ["start 85%", "end 65%"],
   });
   const fill = useSpring(scrollYProgress, { stiffness: 120, damping: 24, restDelta: 0.001 });
+
+  // Le parcours se lit comme une histoire : l'étape atteinte par la ligne de
+  // progression est mise en avant, les suivantes restent en retrait.
+  const [active, setActive] = useState(0);
+  useMotionValueEvent(scrollYProgress, "change", (p) => {
+    setActive(Math.min(milestones.length - 1, Math.max(0, Math.round(p * (milestones.length - 1)))));
+  });
 
   return (
     <div ref={ref} className="relative pl-10 max-w-2xl">
@@ -70,9 +77,17 @@ export default function Timeline() {
           const isLast = i === milestones.length - 1;
           return (
             <Reveal key={m.title} delay={i * 0.08}>
-              <div className="relative">
-                {/* Dot */}
-                <span className={`absolute -left-9 top-1.5 w-3 h-3 rounded-full ${m.dot}`} />
+              <motion.div
+                className="relative"
+                animate={{ opacity: i === active ? 1 : i < active ? 0.55 : 0.3, x: i === active ? 8 : 0 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {/* Dot : allumé une fois atteint par la ligne */}
+                <motion.span
+                  animate={{ scale: i === active ? 1.35 : 1, opacity: i <= active ? 1 : 0.35 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className={`absolute -left-9 top-1.5 w-3 h-3 rounded-full ${m.dot}`}
+                />
                 {isLast && (
                   <motion.span
                     animate={{ scale: [1, 1.8, 1], opacity: [0.6, 0, 0.6] }}
@@ -80,20 +95,19 @@ export default function Timeline() {
                     className={`absolute -left-9 top-1.5 w-3 h-3 rounded-full ${m.dot}`}
                   />
                 )}
-                <div className="overflow-hidden">
+                {/* Déclencheur sur le conteneur visible, pas sur le texte masqué */}
+                <motion.div className="overflow-hidden" initial="hidden" whileInView="visible" viewport={{ once: true }}>
                   <motion.p
-                    initial={{ y: "100%" }}
-                    whileInView={{ y: "0%" }}
-                    viewport={{ once: true }}
+                    variants={{ hidden: { y: "100%" }, visible: { y: "0%" } }}
                     transition={{ type: "spring", stiffness: 120, damping: 20, delay: i * 0.08 }}
                     className={`text-xs uppercase tracking-widest mb-1 font-medium ${m.label}`}
                   >
                     {m.tag}
                   </motion.p>
-                </div>
+                </motion.div>
                 <h3 className="text-white font-semibold text-lg mb-2">{m.title}</h3>
                 <p className="text-gray-400 leading-relaxed text-sm">{m.desc}</p>
-              </div>
+              </motion.div>
             </Reveal>
           );
         })}

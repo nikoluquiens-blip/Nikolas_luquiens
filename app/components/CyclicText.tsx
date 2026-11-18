@@ -2,6 +2,12 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
+/**
+ * Fait défiler une liste de mots au même emplacement.
+ * Tous les mots sont rendus invisibles dans la même cellule de grille : la largeur
+ * réservée est donc exactement celle du mot le plus long (pas d'estimation en
+ * caractères), et la mise en page ne saute pas quand le mot change.
+ */
 export default function CyclicText({
   words,
   className = "",
@@ -12,36 +18,31 @@ export default function CyclicText({
   interval?: number;
 }) {
   const [index, setIndex] = useState(0);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    if (words.length < 2) return;
     const t = setInterval(() => setIndex((i) => (i + 1) % words.length), interval);
     return () => clearInterval(t);
   }, [words.length, interval]);
 
-  if (!mounted) {
-    return <span className={className}>{words[0]}</span>;
-  }
-
   return (
-    <span
-      className={`relative inline-flex overflow-hidden ${className}`}
-      style={{ minWidth: `${Math.max(...words.map((w) => w.length)) * 0.6}em` }}
-    >
+    <span className="relative inline-grid overflow-hidden align-bottom">
+      {words.map((w) => (
+        <span key={w} aria-hidden className={`invisible [grid-area:1/1] whitespace-nowrap ${className}`}>
+          {w}
+        </span>
+      ))}
+      {/* Lecteurs d'écran : tous les mots, une seule fois */}
+      <span className="sr-only">{words.join(" ou ")}</span>
       <AnimatePresence mode="wait" initial={false}>
         <motion.span
           key={words[index]}
-          initial={{ y: "110%", opacity: 0 }}
-          animate={{ y: "0%", opacity: 1 }}
-          exit={{ y: "-110%", opacity: 0 }}
-          transition={{
-            type: "spring",
-            stiffness: 180,
-            damping: 22,
-            opacity: { duration: 0.25 },
-          }}
-          className="inline-block"
+          aria-hidden
+          initial={{ y: "105%" }}
+          animate={{ y: "0%" }}
+          exit={{ y: "-105%" }}
+          transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}
+          className={`[grid-area:1/1] whitespace-nowrap ${className}`}
         >
           {words[index]}
         </motion.span>

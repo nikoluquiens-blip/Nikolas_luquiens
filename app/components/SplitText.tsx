@@ -1,5 +1,10 @@
 "use client";
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
+
+const word: Variants = {
+  hidden: { y: "110%", opacity: 0, rotate: 2 },
+  visible: { y: "0%", opacity: 1, rotate: 0 },
+};
 
 export default function SplitText({
   text,
@@ -14,29 +19,31 @@ export default function SplitText({
 }) {
   const words = text.split(" ");
 
+  // La détection « visible à l'écran » se fait sur le conteneur, pas sur chaque mot :
+  // un mot démarre caché sous son masque (overflow-hidden), il n'est donc jamais
+  // « visible » pour le navigateur et son animation ne se déclencherait jamais.
   return (
-    <span className={className}>
-      {words.map((word, i) => {
-        const isHighlighted = highlight?.split(" ").includes(word);
+    <motion.span
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ staggerChildren: 0.07, delayChildren: delay }}
+    >
+      {words.map((w, i) => {
+        const isHighlighted = highlight?.split(" ").includes(w);
         return (
-          <span key={`${word}-${i}`} className="inline-block overflow-hidden mr-[0.25em]">
+          <span key={`${w}-${i}`} className="inline-block overflow-hidden mr-[0.25em]">
             <motion.span
-              initial={{ y: "110%", opacity: 0, rotate: 2 }}
-              whileInView={{ y: "0%", opacity: 1, rotate: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                damping: 18,
-                delay: delay + i * 0.07,
-              }}
+              variants={word}
+              transition={{ type: "spring", stiffness: 100, damping: 18 }}
               className={`inline-block ${isHighlighted ? "text-blue-400" : ""}`}
             >
-              {word}
+              {w}
             </motion.span>
           </span>
         );
       })}
-    </span>
+    </motion.span>
   );
 }

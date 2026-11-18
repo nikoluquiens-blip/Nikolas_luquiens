@@ -9,7 +9,7 @@ import ClipReveal from "../components/ClipReveal";
 
 export const metadata: Metadata = {
   title: "À propos",
-  description: "Le parcours et les passions de Nikolas Luquiens, futur médiamaticien.",
+  description: "Le parcours et les passions de Nikolas Luquiens, futur médiamaticien ou interactive media designer.",
 };
 
 export default function APropos() {
@@ -24,7 +24,7 @@ export default function APropos() {
           <SplitText text="Luquiens Nikolas" highlight="Nikolas" delay={0.1} />
         </h1>
         <Reveal delay={0.2}>
-          <p className="text-gray-400 mt-4 text-lg">15 ans · 11VG · Futur médiamaticien</p>
+          <p className="text-gray-400 mt-4 text-lg">15 ans · 11VG · Futur médiamaticien ou interactive media designer</p>
         </Reveal>
 
         {/* En bref chips */}
@@ -35,7 +35,8 @@ export default function APropos() {
               { label: "Suisse 🇨🇭", icon: null, color: "border-white/15 text-gray-300" },
               { label: "11VG", icon: "📚", color: "border-white/15 text-gray-300" },
               { label: "Création de contenu", icon: "✨", color: "border-purple-500/30 text-purple-400 bg-purple-500/5" },
-              { label: "CFC Médiamatique", icon: null, color: "border-purple-500/30 text-purple-400 bg-purple-500/5" },
+              { label: "CFC Médiamaticien", icon: null, color: "border-purple-500/30 text-purple-400 bg-purple-500/5" },
+              { label: "CFC Interactive media designer", icon: null, color: "border-purple-500/30 text-purple-400 bg-purple-500/5" },
               { label: "Disponible 2027", icon: "✅", color: "border-green-500/30 text-green-400 bg-green-500/5" },
             ].map((chip) => (
               <span

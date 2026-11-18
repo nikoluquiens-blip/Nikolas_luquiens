@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import IntroLoader from "./components/IntroLoader";
+import MotionProvider from "./components/MotionProvider";
 import ConditionalCTA from "./components/ConditionalCTA";
 import "./globals.css";
 
@@ -26,11 +27,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Nikolas Luquiens — Futur médiamaticien | Portfolio",
+    default: "Nikolas Luquiens — Futur médiamaticien ou interactive media designer | Portfolio",
     template: "%s — Nikolas Luquiens",
   },
   description:
-    "Portfolio de Nikolas Luquiens, 15 ans, basé en Suisse. Futur apprenti CFC médiamatique pour la rentrée 2027. Création de contenu, identité visuelle, communication digitale.",
+    "Portfolio de Nikolas Luquiens, 15 ans, basé en Suisse. Futur apprenti CFC médiamaticien ou interactive media designer pour la rentrée 2027. Création de contenu, identité visuelle, communication digitale.",
   keywords: [
     "Nikolas Luquiens",
     "Luquiens Nikolas",
@@ -40,6 +41,8 @@ export const metadata: Metadata = {
     "CFC médiamatique apprentissage",
     "médiamaticien apprenti Suisse",
     "portfolio médiamaticien junior Suisse",
+    "apprenti interactive media designer Suisse",
+    "CFC interactive media designer 2027",
     "apprentissage CFC médiamatique 2027",
     "communication digitale apprenti",
     "création de contenu Suisse",
@@ -60,9 +63,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Nikolas Luquiens — Futur apprenti médiamaticien",
+    title: "Nikolas Luquiens — Futur apprenti médiamaticien ou interactive media designer",
     description:
-      "15 ans, Suisse. Création de contenu, identité visuelle et communication digitale, à la recherche d'un apprentissage CFC médiamatique pour 2027.",
+      "15 ans, Suisse. Création de contenu, identité visuelle et communication digitale, à la recherche d'un apprentissage CFC de médiamaticien ou d'interactive media designer pour 2027.",
     url: siteUrl,
     siteName: "Portfolio Nikolas Luquiens",
     locale: "fr_CH",
@@ -72,7 +75,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Nikolas Luquiens — Futur apprenti médiamaticien",
+        alt: "Nikolas Luquiens — Futur apprenti médiamaticien ou interactive media designer",
       },
     ],
   },
@@ -80,7 +83,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nikolas Luquiens — Portfolio",
     description:
-      "Futur apprenti CFC médiamatique 2027. Création de contenu, communication, identité visuelle.",
+      "Futur apprenti CFC médiamaticien ou interactive media designer 2027. Création de contenu, communication, identité visuelle.",
     images: ["/opengraph-image"],
   },
   alternates: {
@@ -94,11 +97,12 @@ const personJsonLd = {
   name: "Nikolas Luquiens",
   url: siteUrl,
   description:
-    "Futur apprenti CFC médiamatique pour la rentrée 2027. Création de contenu, identité visuelle et communication digitale, basé en Suisse.",
-  jobTitle: "Futur apprenti CFC Médiamatique",
+    "Futur apprenti CFC médiamaticien ou interactive media designer pour la rentrée 2027. Création de contenu, identité visuelle et communication digitale, basé en Suisse.",
+  jobTitle: "Futur apprenti CFC médiamaticien ou interactive media designer",
   nationality: { "@type": "Country", name: "Switzerland" },
   knowsAbout: [
     "Médiamatique",
+    "Interactive media design",
     "Communication digitale",
     "Création de contenu",
     "Identité visuelle",
@@ -109,7 +113,7 @@ const personJsonLd = {
   ],
   hasOccupation: {
     "@type": "Occupation",
-    name: "Futur médiamaticien",
+    name: "Futur médiamaticien ou interactive media designer",
     occupationLocation: { "@type": "Country", name: "Switzerland" },
   },
 };
@@ -150,14 +154,16 @@ export default function RootLayout({
         />
         <div className="fixed inset-0 z-50 pointer-events-none noise-overlay" />
         <div className="ambient-glow" aria-hidden />
-        <IntroLoader />
-        <CustomCursor />
-        <ScrollProgress />
-        <NavBar />
-        {children}
-        <ConditionalCTA />
-        <Footer />
-        <ScrollToTop />
+        <MotionProvider>
+          <IntroLoader />
+          <CustomCursor />
+          <ScrollProgress />
+          <NavBar />
+          {children}
+          <ConditionalCTA />
+          <Footer />
+          <ScrollToTop />
+        </MotionProvider>
       </body>
     </html>
   );

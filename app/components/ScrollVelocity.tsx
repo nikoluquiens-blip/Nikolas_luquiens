@@ -77,7 +77,9 @@ export default function ScrollVelocity() {
 
       <VelocityTrack baseVelocity={-50}>
         <span className="inline-flex items-center gap-10 pr-10 py-3 text-sm">
-          <span className="text-purple-400 font-medium">🎙 Médiamatique</span>
+          <span className="text-purple-400 font-medium">Médiamatique</span>
+          <span className="text-white/10">·</span>
+          <span className="text-purple-400 font-medium">Interactive media design</span>
           <span className="text-white/10">·</span>
           <span className="text-gray-500">Création de contenu</span>
           <span className="text-white/10">·</span>
@@ -87,7 +89,7 @@ export default function ScrollVelocity() {
           <span className="text-white/10">·</span>
           <span className="text-purple-400 font-medium">Recherche &amp; rédaction</span>
           <span className="text-white/10">·</span>
-          <span className="text-gray-500">CFC Médiamatique 2027</span>
+          <span className="text-gray-500">CFC 2027</span>
           <span className="text-white/10">·</span>
         </span>
       </VelocityTrack>
