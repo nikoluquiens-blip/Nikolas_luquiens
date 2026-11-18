@@ -53,7 +53,10 @@ export default function HeroTitle() {
       {/* Line 2 */}
       <div className="overflow-hidden">
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-tight">
-          <CharReveal text="futur apprenti" delay={0.3} className="text-white" />
+          <span className="text-gray-400 font-light">
+            <CharReveal text="votre " delay={0.3} />
+          </span>
+          <CharReveal text="futur apprenti" delay={0.3 + 6 * 0.025} className="text-white" />
         </h1>
       </div>
 
