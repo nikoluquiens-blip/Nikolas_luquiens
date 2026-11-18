@@ -133,6 +133,16 @@ export default function Footer() {
           >
             niko.luquiens@icloud.com
           </motion.a>
+          <motion.a
+            href="https://www.instagram.com/nikolas_luquiens/"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ x: 3, color: "#ffffff" }}
+            transition={{ type: "spring", stiffness: 400, damping: 20 }}
+            className="text-gray-400 text-sm transition-colors block"
+          >
+            Instagram · @nikolas_luquiens
+          </motion.a>
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 400, damping: 20 }}>
             <Link
               href="/contact"

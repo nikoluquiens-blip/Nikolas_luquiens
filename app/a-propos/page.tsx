@@ -50,6 +50,34 @@ export default function APropos() {
         </Reveal>
       </section>
 
+      {/* Vidéo de présentation */}
+      <section className="px-8 md:px-16 py-16 border-b border-white/5">
+        <ClipReveal>
+          <p className="text-gray-500 text-xs uppercase tracking-widest mb-10">Ma vidéo de présentation</p>
+        </ClipReveal>
+        <Reveal>
+          <div className="max-w-3xl aspect-video rounded-2xl overflow-hidden border border-white/10 bg-black">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/UNhohGAUg0o"
+              title="Vidéo de présentation — Nikolas Luquiens"
+              className="w-full h-full"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+          <a
+            href="https://youtu.be/UNhohGAUg0o"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors mt-4"
+          >
+            Voir sur YouTube <span>↗</span>
+          </a>
+        </Reveal>
+      </section>
+
       {/* Mon histoire */}
       <section className="px-8 md:px-16 py-16 border-b border-white/5">
         <ClipReveal>
