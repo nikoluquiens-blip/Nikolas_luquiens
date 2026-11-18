@@ -304,6 +304,18 @@ body {
   transform: scale(0.97);
 }
 
+/* ── Mode studio (easter egg de l'accueil) ────────────────────────────
+   Le contenu s'efface pour laisser la scène à l'onde sonore. */
+.studio-dim {
+  transition: opacity 0.6s ease, filter 0.6s ease;
+}
+html[data-studio="on"] .studio-dim {
+  /* !important : la photo a une opacité animée par motion (style inline) qu'il faut surpasser. */
+  opacity: 0.1 !important;
+  filter: blur(3px);
+  pointer-events: none;
+}
+
 /* ── Liens texte ─────────────────────────────────────────────────────
    Le soulignement se dessine de gauche à droite à l'arrivée du curseur
    et repart vers la droite à sa sortie (d'où le changement d'ancrage). */

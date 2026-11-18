@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import { studio, onStudioChange, setStudioActive } from "../lib/studio";
 
 /**
  * Fond de l'accueil : un signal radio.
@@ -53,6 +54,10 @@ export default function SignalWave() {
     let tuner = 0.5;
     let boost = 0; // amplification sous le curseur, retombe quand la souris s'arrête
     let lastPointer = -Infinity;
+    // 0 = accueil normal, 1 = mode studio. Lissé pour une bascule progressive.
+    let studioMix = 0;
+    let studioClock = 0; // le son accélère l'onde : on intègre la vitesse au fil du temps
+    let lastFrame = start;
 
     function resize() {
       if (!canvas || !ctx) return;
@@ -86,14 +91,23 @@ export default function SignalWave() {
       if (idle && !reduceMotion) target = 0.5 + Math.sin(t * 0.25) * 0.32;
       tuner += (target - tuner) * 0.06;
       boost += ((idle ? 0.35 : 1) - boost) * 0.04;
+      studioMix += ((studio.active ? 1 : 0) - studioMix) * 0.05;
+      const dt = Math.min((now - lastFrame) / 1000, 0.1);
+      lastFrame = now;
+      studioClock += dt * (1 + studio.level * 3);
+      const tw = t + studioClock * studioMix; // temps de l'onde : plus rapide quand le son est fort
 
       if (readoutRef.current) {
         readoutRef.current.textContent = (FM_MIN + tuner * (FM_MAX - FM_MIN)).toFixed(1);
       }
 
       ctx.clearRect(0, 0, width, height);
-      const baseY = height * (width < 768 ? 0.78 : 0.62);
-      const maxAmp = Math.min(height * 0.11, 90);
+      // En studio, l'onde quitte le bas de l'écran pour en occuper le centre.
+      // Position calée sur la fenêtre visible : sur mobile, l'accueil est plus haut que l'écran
+      // et la console occupe le bas — l'onde se place donc dans le tiers supérieur.
+      const studioY = Math.min(height * 0.5, window.innerHeight * (width < 768 ? 0.36 : 0.55));
+      const baseY = height * (width < 768 ? 0.78 : 0.62) * (1 - studioMix) + studioY * studioMix;
+      const maxAmp = Math.min(height * 0.11, 90) * (1 + studioMix * 0.9);
       const tunerX = tuner * width;
       const sigma = Math.max(width * 0.12, 120);
       const end = width * trace;
@@ -104,7 +118,11 @@ export default function SignalWave() {
         const [r, g, b] = mix(BLUE, PURPLE, k);
         // La ligne centrale est la plus nette ; les autres forment l'« écho ».
         const centre = 1 - Math.abs(k - 0.5) * 2;
-        const alpha = 0.1 + centre * 0.32;
+        const alpha = (0.1 + centre * 0.32) * (1 + studioMix * 0.9);
+        // Studio + micro : chaque ligne suit une bande de fréquence (graves en bas → aigus en haut).
+        // Studio sans micro : niveau moyen constant, l'onde reste vivante.
+        const band = studio.micLive ? Math.min(studio.bands[l] * 1.6, 1.4) : 0.45;
+        const lineGain = 1 - studioMix + studioMix * (0.06 + band * 1.5);
 
         ctx.beginPath();
         for (let x = 0; x <= end; x += STEP) {
@@ -114,17 +132,17 @@ export default function SignalWave() {
           const dx = x - tunerX;
           const focus = 1 + 1.6 * boost * Math.exp(-(dx * dx) / (2 * sigma * sigma));
           const wave =
-            Math.sin(x * 0.011 + t * 1.3 + phase) * 0.6 +
-            Math.sin(x * 0.027 - t * 2.1 + phase * 1.7) * 0.3 +
-            Math.sin(x * 0.053 + t * 3.4 + phase * 0.5) * 0.1;
-          const y = baseY + wave * maxAmp * envelope * focus * power * (0.45 + centre * 0.55);
+            Math.sin(x * 0.011 + tw * 1.3 + phase) * 0.6 +
+            Math.sin(x * 0.027 - tw * 2.1 + phase * 1.7) * 0.3 +
+            Math.sin(x * 0.053 + tw * 3.4 + phase * 0.5) * 0.1;
+          const y = baseY + wave * maxAmp * envelope * focus * power * lineGain * (0.45 + centre * 0.55);
           if (x === 0) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
         }
         // Sur grand écran, le texte occupe la moitié gauche : l'onde s'y efface
         // pour ne jamais gêner la lecture, et prend toute sa force côté photo.
         const stroke = ctx.createLinearGradient(0, 0, width, 0);
-        const textSide = width >= 1024 ? 0.12 : 1;
+        const textSide = width >= 1024 ? 0.12 + 0.88 * studioMix : 1;
         for (const u of [0, 0.3, 0.45, 0.6, 1]) {
           const a = alpha * (textSide + (1 - textSide) * smoothstep(0.3, 0.6, u));
           stroke.addColorStop(u, `rgba(${r},${g},${b},${a})`);
@@ -159,7 +177,8 @@ export default function SignalWave() {
     }
 
     function play() {
-      if (running || reduceMotion) return;
+      // Réglage « réduire les animations » : onde fixe, sauf si l'on ouvre soi-même le studio.
+      if (running || (reduceMotion && !studio.active)) return;
       running = true;
       raf = requestAnimationFrame(loop);
     }
@@ -182,6 +201,14 @@ export default function SignalWave() {
     const onVisibility = () => (document.hidden ? pause() : play());
     document.addEventListener("visibilitychange", onVisibility);
     window.addEventListener("pointermove", onPointerMove, { passive: true });
+    const offStudio = onStudioChange((active) => {
+      if (active) play();
+      else if (reduceMotion) {
+        pause();
+        studioMix = 0;
+        draw(performance.now());
+      }
+    });
 
     if (reduceMotion) draw(performance.now());
 
@@ -191,22 +218,30 @@ export default function SignalWave() {
       io.disconnect();
       document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("pointermove", onPointerMove);
+      offStudio();
     };
   }, []);
 
   return (
     <>
       <canvas ref={canvasRef} aria-hidden className="absolute inset-0 w-full h-full pointer-events-none" />
-      <div
-        aria-hidden
-        className="absolute bottom-10 left-8 md:left-16 z-10 hidden sm:flex items-center gap-2 font-mono text-[11px] tracking-[0.2em] text-gray-500 pointer-events-none"
+      {/* L'afficheur FM est aussi la porte d'entrée du mode studio (raccourci : touche S). */}
+      <button
+        type="button"
+        onClick={() => setStudioActive(!studio.active)}
+        title="Mode studio (touche S)"
+        aria-label="Ouvrir le mode studio"
+        className="group absolute bottom-10 left-8 md:left-16 z-20 flex items-center gap-2 font-mono text-[11px] tracking-[0.2em] text-gray-500 hover:text-gray-300 transition-colors rounded-md focus-visible:outline focus-visible:outline-1 focus-visible:outline-purple-400 focus-visible:outline-offset-4"
       >
         <span className="relative flex h-1.5 w-1.5">
           <span className="absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-60 animate-ping" />
           <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-purple-400" />
         </span>
         FM <span ref={readoutRef} className="text-purple-300 tabular-nums w-[3.2em] text-right">97.8</span> MHz
-      </div>
+        <span className="hidden md:inline text-purple-300/0 group-hover:text-purple-300/80 group-focus-visible:text-purple-300/80 transition-colors">
+          · Studio (S)
+        </span>
+      </button>
     </>
   );
 }

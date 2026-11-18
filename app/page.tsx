@@ -8,6 +8,7 @@ import CursorGlow from "./components/CursorGlow";
 import MagneticButton from "./components/MagneticButton";
 import AnimatedNumber from "./components/AnimatedNumber";
 import SignalWave from "./components/SignalWave";
+import StudioMode from "./components/StudioMode";
 import ConfettiButton from "./components/ConfettiButton";
 import QuoteSection from "./components/QuoteSection";
 import ScrollVelocity from "./components/ScrollVelocity";
@@ -119,6 +120,7 @@ export default function WelcomePage() {
           style={{ y: heroContentY, opacity: heroContentOpacity }}
           className="relative z-10 max-w-xl pb-16 md:pb-0 mt-8 md:mt-0"
         >
+          <div className="studio-dim">
           <HeroTitle />
 
           <Reveal delay={0.4}>
@@ -205,9 +207,11 @@ export default function WelcomePage() {
               <span className="group-hover:underline underline-offset-2">niko.luquiens@icloud.com</span>
             </a>
           </Reveal>
+          </div>
         </motion.div>
 
         <HeroPhoto />
+        <StudioMode />
 
         {/* Scroll indicator */}
         <motion.div
